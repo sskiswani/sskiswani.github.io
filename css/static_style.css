@@ -1,0 +1,138 @@
+body {
+   margin: 0;
+   padding: 0;
+   font-size: 1.01em;
+   background-color: rgba(0, 128, 213, 0.01);
+}
+
+
+a {
+   /*color: rgba(0, 128, 213, 1);*/
+   color: black;
+   text-decoration: none;
+   border-bottom: 1px outset rgba(0, 128, 213, 1);
+}
+
+a:hover {
+   color: black;
+  /*color: rgba(0, 128, 213, 0.4);*/
+}
+
+a:visted {
+   color: black;
+  /*color: rgba(0, 128, 213, 1);*/
+}
+
+/***********************************************************************************/
+/* HEADER */
+/***********************************************************************************/
+
+.header {
+   width: 100%;
+   height: 60px;
+   top: 0;
+
+   margin: 0 auto 40px auto;
+   padding: 5px 10px 5px 10px;
+
+   line-height: 60px;
+
+   color: black;
+   background-color: #398bce;
+
+   /*color: #24201C;*/
+   /*background: rgba(114, 197, 255, 0.5);*/
+   /*border-top: 3px solid rgba(114, 197, 255, 1);*/
+   /*border-bottom: 3px solid rgba(114, 197, 255, 1);*/
+}
+
+.header > a:nth-child(1) {
+   border: none;
+}
+
+.header > a > h1 {
+   display: inline;
+   left: 0;
+   font-size: 1.5em;
+   /*color: #24201C;*/
+   /*margin: 0;*/
+   /*padding: 0;*/
+}
+
+.nav {
+   display: inline-block;
+   padding: 0;
+   margin: 0;
+
+   white-space: nowrap;
+   text-align : center;
+
+   list-style-type: disc;
+}
+
+.nav li {
+   display: inline;
+   white-space: nowrap;
+}
+
+.nav li:before {
+   content: '\00a0\2022\00a0\00a0';
+   color: black;
+   font-size: 16px;
+}
+
+/*.nav li:first-child:before { content: ''; }*/
+
+/***********************************************************************************/
+/* CONTENT */
+/***********************************************************************************/
+
+.mug {
+   float: left;
+   width: 200px;
+   height: 200px;
+
+   margin: 15px;
+   overflow: hidden;
+   border-radius: 240px;
+}
+
+.content {
+   min-width: 330px;
+   width: 85%;
+   max-width: 800px;
+
+   margin: 10px auto;
+   padding: 0;
+}
+
+.words {
+   display: table;
+   height: 250px;
+
+   margin: 15px;
+   padding: 0;
+
+   overflow: hidden;
+}
+
+.bio {
+   display: table-cell;
+   vertical-align: center;
+   padding: 5px 15px;
+}
+
+#quote {
+   width: 80%;
+   clear: both;
+   padding: 5px 5px 15px 15px;
+   margin: 0 auto;
+   /*background-color: rgba(67,138,197, 0.15);*/
+
+   border-left: 5px solid rgba(0, 128, 213, 0.5);
+   border-radius: 15px;
+}
+
+p {
+   text-indent: 2ex;
+}
