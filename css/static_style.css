@@ -39,6 +39,8 @@ a:visted {
 
    color: black;
    background-color: #398bce;
+   font-size: 1.25em;
+   font-weight: bold;
 
    /*color: #24201C;*/
    /*background: rgba(114, 197, 255, 0.5);*/
@@ -93,6 +95,7 @@ a:visted {
    height: 200px;
 
    margin: 15px;
+   margin-left: -15px;
    overflow: hidden;
    border-radius: 240px;
 }
@@ -100,7 +103,7 @@ a:visted {
 .content {
    min-width: 330px;
    width: 85%;
-   max-width: 800px;
+   max-width: 761px;
 
    margin: 10px auto;
    padding: 0;
