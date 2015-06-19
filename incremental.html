@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>JAMS Clustering Emporium: Incremental Clustering Demo</title>
+    <link rel="stylesheet" href="css/incremental_style.css" type="text/css" />
+
+    <!-- Third-Party Libraries -->
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="js/underscore.js"></script>
+
+    <!-- JAMS Library -->
+    <script src="js/clustering.js"></script>
+    <script src="js/incremental.js"></script>
+<style>
+
+path {
+  stroke: #f0f;
+}
+
+path:first-child {
+  fill: yellow !important;
+}
+/*
+.q0-9 { fill: rgb(197,27,125); }
+.q1-9 { fill: rgb(222,119,174); }
+.q2-9 { fill: rgb(241,182,218); }
+.q3-9 { fill: rgb(253,224,239); }
+.q4-9 { fill: rgb(247,247,247); }
+.q5-9 { fill: rgb(230,245,208); }
+.q6-9 { fill: rgb(184,225,134); }
+.q7-9 { fill: rgb(127,188,65); }
+.q8-9 { fill: rgb(77,146,33); }*/
+</style>
+
+</head>
+<body>
+    <h1>Incremental Clustering Demo</h1>
+    <div class="controls">
+        <label><input type="radio" name="algo" value="seqkmeans" checked /> Sequential K-Means</label>
+        <br />
+
+        <label>Clusters (K): &nbsp;&nbsp;&nbsp;<input type="number" value="3" id="count" style="width: 10ex; padding-left: 0.75ex;"/></label>
+        <br />
+
+        <input type="button" value="Begin Clustering" id="start" />
+        <input type="button" value="Reset Clustering" id="reset" disabled />
+        <input type="button" value="Reveal Next Point" id="next" disabled />
+        <input type="button" value="Clear Demo" id="clear" />
+    </div>
+
+    <div id="content">
+    </div>
+</body>
+</html>

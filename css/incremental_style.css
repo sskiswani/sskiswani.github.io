@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0 0 0 5px;
+    color: #24201C;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgba(0, 128, 213, 0.1);
+}
+
+span {
+    font-style: italic;
+}
+
+#content {
+    width: 960px;
+    height: 500px;
+    margin: 10px auto;
+    padding: 0;
+    border: 3px solid rgba(114, 197, 255, 0.8);
+    background-color: white;
+}
+
+svg {
+    font-family: "Segoe UI", sans-serif;
+}
+
+circle,
+path {
+  stroke: #000;
+}
+
+path {
+  fill-opacity: .1;
+}
+
+path:hover {
+  fill-opacity: .2;
+}
