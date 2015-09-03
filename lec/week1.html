@@ -1,6 +1,6 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="settings" content=",- js: [/test.js]">
-<meta name="summary" content="Asymptotic Notation">
-<meta name="authors" content="Sam"><style>body {
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="authors" content="Sam">
+<meta name="settings" content=",- js: [/test.js]">
+<meta name="summary" content="Asymptotic Notation"><style>body {
   width: 45em;
   border: 1px solid #ddd;
   outline: 1300px solid #fff;
@@ -1140,6 +1140,78 @@ Hence, $25n^{3} - n^{2} \in \Theta (n^{3})$.
 <p>d. Disprove $f \in O(g) \rightarrow f \in \Theta (g)$</p>
 <div class="solutions">
 Let $f(n) = n$ and $g(n) = n^2$. Then $f=O(g)$ but $f\neq\Omega(g)$
+</div>
+
+<h2 id="problem-2"><a name="user-content-problem-2" href="#problem-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Problem 2</h2>
+<p>Give the asymptotic running time of the following code segments in $\Theta$ notation. <br />
+<div class="codehilite"><pre><span class="kd">function</span> <span class="nx">squareAll</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">*</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<br />
+<div class="solutions"><br />
+A simple iteration over every element of an array is $O(n)$. <br />
+</div></p>
+<hr />
+<p><div class="codehilite"><pre><span class="kd">function</span> <span class="nx">squarePlusOne</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span> <span class="o">=</span> <span class="nx">squareAll</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<br />
+<div class="solutions"><br />
+The call to <code>squareAll</code> has a run time of $O(n)$, and then this function has a loop which adds another $O(n)$. To find the run time of this code segment, we simply add them together. This means we have $O(2n)$ which is still just $O(n)$ &ndash; constants are ignored.<br />
+</div></p>
+<hr />
+<p>For the following code segments, assume <code>image</code> is an array of length $n^2$ (e.g. both its width and height are n). Give both worst case and best case (if applicable).</p>
+<div class="codehilite"><pre><span class="kd">function</span> <span class="nx">getRegion</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">start_x</span><span class="p">,</span> <span class="nx">start_y</span><span class="p">,</span> <span class="nx">regWidth</span><span class="p">,</span> <span class="nx">regHeight</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">pixels</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">regHeight</span><span class="p">;</span> <span class="nx">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">regWidth</span><span class="p">;</span> <span class="nx">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">pixel</span> <span class="o">=</span> <span class="nx">image</span><span class="p">.</span><span class="nx">getPixel</span><span class="p">(</span><span class="nx">start_x</span> <span class="o">+</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">start_y</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
+            <span class="nx">pixels</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">pixel</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">pixels</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="solutions">
+Focusing on the loops, the inner loop (<code>for(var x = 0; x < regWidth; x++)</code>) is a simple linear scan which is $O(regWidth)$ or just $O(n)$ in this case. Similarly, the outer loop is <code>for(var y = 0; y < regHeight; y++)</code> and so we have $O(height)$ or $O(n)$.
+<br /><br />
+Since we enter the inner loop for every iteration of the outer loop, we're repeating a $O(n)$ code segment a $O(n)$ number of times. So the run time of this function is $O(n^2)$. More generally, its $O(width * height)$.
+</div>
+
+<hr />
+<div class="codehilite"><pre><span class="kd">function</span> <span class="nx">createTilesheet</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">tileWidth</span><span class="p">,</span> <span class="nx">tileHeight</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">y</span> <span class="o">&lt;</span> <span class="nx">image</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span> <span class="nx">y</span> <span class="o">+=</span> <span class="nx">tileHeight</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">image</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span> <span class="nx">x</span> <span class="o">+=</span> <span class="nx">tileWidth</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">tile</span> <span class="o">=</span> <span class="nx">getRegion</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">tileWidth</span><span class="p">,</span> <span class="nx">tileHeight</span><span class="p">);</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tile</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="solutions">
+So like the last example, there's a nested loop but the indices increase by <code>tileHeight</code> and <code>tileWidth</code> respectively. Considering this, the complexity of the inner loop is $O(\frac{width}{tileWidth})$, but since we can assume <code>tileWidth</code> is small compared to the image width (e.g. <i>constant</i>) we have: $O(\frac{width}{tileWidth}) \in O(width) \in O(n)$.
+<br /><br />
+There's small caveat however, since on every iteration of the inner loop there's a call to <code>getRegion</code>, which in the previous example was shown to have a run time of $O(n^2)$. However, since we know here that both <code>tileWidth</code> and <code>tileHeight</code> are constants, then it actually becomes $O(1^2) = O(1)$. The key here is to remember that constants don't contribute to the limiting behavior (e.g. they become irrelevant when the input to <code>createTilesheet</code> is very large). Let's say the image width is 1000000 and tileWidth is 10. The time it takes to run <code>getRegion</code> will be trivial in that case. Formally: $O(\frac{width}{tileWidth} * (tileWidth * tileHeight)) \in O(width)$.
+<br /><br />
+The outer loop is easy at this point, its run time is $O(height)$. Like in the previous examples, due to the nested loop this function is also $O(n^2)$.
+<br /><br />
+If <code>tileHeight</code> and <code>tileWidth</code> varied with the size of the image, then indeed it would be $O(n^4)$.
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
