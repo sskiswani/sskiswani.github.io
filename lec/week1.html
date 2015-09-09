@@ -1,5 +1,5 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="summary" content="Asymptotic Notation">
-<meta name="authors" content="Sam">
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="authors" content="Sam">
+<meta name="summary" content="Asymptotic Notation">
 <meta name="settings" content=",- js: [/test.js]"><style>body {
   width: 45em;
   border: 1px solid #ddd;
@@ -1186,7 +1186,7 @@ The call to <code>squareAll</code> has a run time of $\Theta(n)$, and then this 
 <div class="solutions">
 Focusing on the loops, the inner loop (<code>for(var x = 0; x < regWidth; x++)</code>) is a simple linear scan which is $\Theta(regWidth)$ or just $\Theta(n)$ in this case. Similarly, the outer loop is <code>for(var y = 0; y < regHeight; y++)</code> and so we have $\Theta(height)$ or $\Theta(n)$.
 <br /><br />
-Since we enter the inner loop for every iteration of the outer loop, we're repeating a $O(n)$ code segment a $Theta(n)$ number of times. So the run time of this function is $Theta(n^2)$. More generally, its $Theta(width * height)$.
+Since we enter the inner loop for every iteration of the outer loop, we're repeating a $O(n)$ code segment a $\Theta(n)$ number of times. So the run time of this function is $\Theta(n^2)$. More generally, its $\Theta(width * height)$.
 </div>
 
 <hr />
