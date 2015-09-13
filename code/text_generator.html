@@ -2,14 +2,14 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
-  <title>lyrics_generator.py</title>
+  <title>text_generator.py</title>
   <link rel="stylesheet" href="pycco.css">
 </head>
 <body>
 <div id="background"></div>
 <div id='container'>
   <div class='section'>
-    <div class='docs'><h1>lyrics_generator.py</h1></div>
+    <div class='docs'><h1>text_generator.py</h1></div>
   </div>
   <div class='clearall'>
   <div class='section' id='section-0'>
@@ -17,7 +17,7 @@
       <div class='octowrap'>
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
-      <p>You can see the actual code file <a href="lyrics_generator.py">here</a>.</p>
+      <p>You can see the actual code file <a href="text_generator.py">here</a>.</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="kn">import</span> <span class="nn">string</span>
@@ -151,7 +151,7 @@ version of the <code>get_trigrams</code> function, here for reference.</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-10'>#</a>
       </div>
-      <p>Load some data from a text file named <code>lyrics.txt</code>
+      <p>Load some data from a text file named <code>data.txt</code>
 Open the file containing the data, and read it into a variable.
 The file might look something like:</p>
 <p><code>WORK IN PRAGUE\n
@@ -162,7 +162,7 @@ No claims between updates and rehearsals.\n
 Always admired.\n</code></p>
     </div>
     <div class='code'>
-      <div class="highlight"><pre>    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;lyrics.txt&quot;</span><span class="p">)</span>
+      <div class="highlight"><pre>    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">)</span>
     <span class="n">data</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></pre></div>
     </div>
   </div>
@@ -306,7 +306,7 @@ a dead-end, stop immediately. Naturally, there's much better ways to do this.</p
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">generated_text</span> <span class="o">=</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;.&#39;</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Lyrics: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">generated_text</span><span class="p">)</span></pre></div>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Generated Text: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">generated_text</span><span class="p">)</span></pre></div>
     </div>
   </div>
   <div class='clearall'></div>

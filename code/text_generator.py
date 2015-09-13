@@ -1,3 +1,7 @@
+"""
+You can see the actual code file [here](text_generator.py).
+"""
+
 import string
 import random
 from collections import defaultdict
@@ -44,7 +48,7 @@ def weighted_choice(states):
 
 
 if __name__ == '__main__':
-    # Load some data from a text file named `lyrics.txt`
+    # Load some data from a text file named `data.txt`
     # Open the file containing the data, and read it into a variable.
     # The file might look something like:
     """
@@ -57,7 +61,7 @@ if __name__ == '__main__':
     Always admired.\n
     `
     """
-    file = open("lyrics.txt")
+    file = open("data.txt")
     data = file.read()
 
     # Clean up the data by removing punctuation and replacing newlines (`\n`) with spaces.
@@ -108,7 +112,7 @@ if __name__ == '__main__':
 
     # Now we convert the data to regular string.
     generated_text = ' '.join(result) + '.'
-    print("Lyrics: %s" % generated_text)
+    print("Generated Text: %s" % generated_text)
 
     # Enjoy! Sometimes Markov Chains are great, sometimes they are finicky, and you probably
     # need a lot of data to get coherent/good results from them. They're definitely a good
