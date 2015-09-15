@@ -1131,12 +1131,38 @@ MathJax.Hub.Config({
 <p>However, it&rsquo;s probably safe to assume that <code>Math.random()</code> is a uniform random variable. As such, the value of <code>pivot</code> is most likely going to be <em>approximately</em> halfway between <code>left</code> and <code>right</code>. Cutting the search space in half on every iteration yields something like $O(\lg n)$.</p>
 <p>To be pedantic, you could say this code is bounded by $\Omega(n)$ and $O(\lg n)$.<br />
 </div></p>
-<!--
-wzxhzdk:1
-<div class="solutions">
-</div>
--->
+<p><strong>b.</strong> The following code segment sorts an array of boxes, and then checks for overlapping pairs. Each box is defined by a min and max value for each axis. Two boxes overlap if they overlap on every axis.</p>
+<p><center><img src="../img/sweep.png"/><br />
+<em>Overlap only if they overlap on every axis.</em><br />
+</center></p>
+<p><div class="codehilite"><pre><span class="kd">function</span> <span class="nx">sort_and_sweep</span><span class="p">(</span><span class="nx">boxes</span><span class="p">,</span> <span class="nx">sort_axis</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">overlaps</span> <span class="o">=</span> <span class="p">[]</span>
 
+    <span class="c1">// Sort the boxes along a given axis.</span>
+    <span class="nx">boxes</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">sort_axis</span><span class="p">);</span> <span class="c1">// O(n lg n)</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">boxes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">boxes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Since boxes are sorted this gives us an early exit.</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">boxes</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">max</span><span class="p">[</span><span class="nx">sort_axis</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">boxes</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">min</span><span class="p">[</span><span class="nx">sort_axis</span><span class="p">]</span> <span class="p">)</span>
+                <span class="k">break</span><span class="p">;</span>
+
+            <span class="c1">// Check if they overlap along all axes.</span>
+            <span class="k">if</span><span class="p">(</span> <span class="nx">detectOverlap</span><span class="p">(</span><span class="nx">boxes</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">boxes</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="p">)</span>
+                <span class="nx">overlaps</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="p">[</span><span class="nx">boxes</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">boxes</span><span class="p">[</span><span class="nx">j</span><span class="p">]]</span> <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">overlaps</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<br />
+<div class="solutions"><br />
+Sorting the list of rectangles is $O(n\lg n)$ assuming a decent sorting algorithm.</p>
+<p>For best case behavior, assuming <em>none</em> of them are overlapping along <code>sort_axis</code>, the nested loops are $O(n)$, since the inner loop would be $O(1)$ (or close to it in near-optimal cases).</p>
+<p>What happens when they cluster along a single axis (e.g. if we compared along the y-axis instead of x)? The inner loop won&rsquo;t terminate early, and so it could potentially compare <code>boxes[i]</code> to every other element. Comparing an element to every element that follows it works out to $O(\frac{1}{2}n(n-1)) \rightarrow O(n^2)$.</p>
+<p>So, the worst case is $O(n^2)$ and the best case is $O(n\lg n)$.<br />
+</div></p>
 <hr />
 <h2 id="problem-2"><a name="user-content-problem-2" href="#problem-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Problem 2</h2>
 <p>Design an algorithm to solve the following problems.</p>
