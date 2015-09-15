@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="summary" content="Recurrences">
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="summary" content="Algorithm Design">
 <meta name="authors" content="Sam"><style>body {
   width: 45em;
   border: 1px solid #ddd;
@@ -1106,30 +1106,91 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>Recurrences</title></head><body><article class="markdown-body"><h1 id="recurrences"><a name="user-content-recurrences" href="#recurrences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Recurrences</h1>
+<title>Algorithm Design</title></head><body><article class="markdown-body"><h1 id="algorithm-design"><a name="user-content-algorithm-design" href="#algorithm-design" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Algorithm Design</h1>
 <h2 id="problem-1"><a name="user-content-problem-1" href="#problem-1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Problem 1</h2>
-<p>a. $T(n) = T(n - 1) + 1$</p>
+<p>Give the best and worst case run times in O-notation.</p>
+<p><strong>a.</strong> The following code segment searches for an item <code>needle</code> in a sorted array using a variation on binary search. Instead of splitting the array in half on each iteration, it chooses a random position to split at.<br />
+<div class="codehilite"><pre><span class="kd">function</span> <span class="nx">random_binary_search</span><span class="p">(</span> <span class="nx">sorted_array</span><span class="p">,</span> <span class="nx">needle</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">sorted_array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">pivot</span><span class="p">;</span>
+
+    <span class="k">while</span><span class="p">(</span> <span class="nx">right</span> <span class="o">&gt;=</span> <span class="nx">left</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">pivot</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">right</span> <span class="o">-</span> <span class="nx">left</span><span class="p">)</span> <span class="o">+</span> <span class="nx">left</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">sorted_array</span><span class="p">[</span><span class="nx">pivot</span><span class="p">]</span> <span class="o">==</span> <span class="nx">needle</span> <span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">sorted_array</span><span class="p">[</span><span class="nx">pivot</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">needle</span> <span class="p">)</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">pivot</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">sorted_array</span><span class="p">[</span><span class="nx">pivot</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">needle</span> <span class="p">)</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">pivot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<br />
+<div class="solutions"><br />
+<a href="https://www.xkcd.com/221/">Suppose <code>Math.random()</code> <em>always</em> returned 0</a>, then this code will just do a linear scan and run in something like $O(n)$. </p>
+<p>However, it&rsquo;s probably safe to assume that <code>Math.random()</code> is a uniform random variable. As such, the value of <code>pivot</code> is most likely going to be <em>approximately</em> halfway between <code>left</code> and <code>right</code>. Cutting the search space in half on every iteration yields something like $O(\lg n)$.</p>
+<p>To be pedantic, you could say this code is bounded by $\Omega(n)$ and $O(\lg n)$.<br />
+</div></p>
+<!--
+wzxhzdk:1
 <div class="solutions">
-Unrolling the recurrence yields: $T(n) = 1 + T(n - 2) = 1 + 2 + T(n - 3)$<br />
-And so $T(n) = 1 + 1 + \dots + T(n - n) = \sum^n_{i=1} 1 = n$.<br />
-Thus $T(n) \in \Theta(n)$
 </div>
+-->
 
-<p>b. $T(n) = T(n - 1) + n$</p>
-<div class="solutions" >
-First unroll the recurrence to get $T(n) = n + T((n - 1) = n + (n-1) + T(n-2)$ and so on...<br />
-$T(n) = \sum^n_{x=3} x + \Theta(1) = \sum^n_{x=1} x - 2 - 1$<br />
-$T(n) = \frac{n(n+1)}{2} + \Theta(1)$<br /><br />
-Thus $T(n) = \Theta(n^2)$
-</div>
+<hr />
+<h2 id="problem-2"><a name="user-content-problem-2" href="#problem-2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Problem 2</h2>
+<p>Design an algorithm to solve the following problems.</p>
+<p><strong>a.</strong> Given an array of $n + 1$ integers, all of which are between 1 and $k$, containing<br />
+exactly one duplicate, give a $O(n + k)$ time algorithm for finding the duplicated<br />
+element. It <em>is</em> possible for $k$ to be much larger than $n$.<br />
+<div class="solutions"><br />
+Create a temporary array of length $k$ with all values set to zero (or false). Scan through the input array and use each element to index into the temporary array and increment the value. If the value is already 1 (or true), then you found the duplicate element. Initializing a temporary array is $O(k)$ and scanning the input is $O(n)$, so the result is the desired (not optimal) $O(n + k)$.</p>
+<p>The optimal solution is to use a hash table or dictionary, which is $O(n)$.<br />
+</div></p>
+<p><strong>b.</strong> Given $n$ integers, find the pair with the smallest difference between them. What is the run time of your solution?<br />
+<div class="solutions"><br />
+One way to do this is to sort the integers and then find the difference between each consecutive pair &ndash; an $O(n\lg n)$ solution.<br />
+</div></p>
+<p><strong>c.</strong> Given $n$ 2D points, find the pair with the smallest Euclidean distance between them. What is the run time of your solution?<br />
+<div class="solutions"><br />
+A good chance to use divide-and-conquer. The algorithm is as follows:</p>
+<ul>
+<li><strong>Divide:</strong> Draw a vertical line so that roughly half the points are on either side.</li>
+<li><strong>Conquer:</strong> Find closest pair on each side recursively. </li>
+<li><strong>Combine:</strong> Find closest pair with one point on each side.</li>
+</ul>
+<p>The combine step is a little tricky, and one way to do it is to remove the points that are further away from the dividing line than the distance between the minimum pair found in the conquer step. Sort the remaining points, and try to find a closer pair from these (e.g. the pairs that go across the dividing line).  </p>
+<p>You get a recurrence of $T(n) \leq 2T(n/2) + O(n \lg n)$ which reduces to $T(n) \in O(n \lg^2 n)$. However, this problem can be done in $O(n \lg n)$ if you merge the results from the conquer step instead of sort them (its a little more complicated). </p>
+<p>For reference, here&rsquo;s how the code might look like:<br />
+<div class="codehilite"><pre><span class="kd">function</span> <span class="nx">closest_pair</span><span class="p">(</span> <span class="nx">points</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">midpoint</span> <span class="o">=</span> <span class="nx">compute_midpoint</span><span class="p">(</span><span class="nx">points</span><span class="p">);</span>
 
-<p>c. $T(n) = T(\sqrt{n}) + 1$</p>
-<div class="solutions" >
-Let $k = \lg n$ which gives us $T(2^k) = T(2^{k/2}) + 1$<br />
-We can use another recurrence, say $S(k) = T(2^k) = S(k/2) + 1 $<br />
-Using a tree we can show $S(k) = \Theta(\lg k) = T(2^k)$.<br /><br />
-If $T(2^k) = \Theta(\lg k)$ then undoing the substitution gives us $T(n) = \Theta(\lg \lg n)$.
-</div>
+    <span class="c1">// both of these are T( n/2 )</span>
+    <span class="nx">left_delta</span> <span class="o">=</span> <span class="nx">closest_pair</span><span class="p">(</span> <span class="nx">midpoint</span><span class="p">.</span><span class="nx">getLeft</span><span class="p">()</span> <span class="p">);</span>
+    <span class="nx">right_delta</span> <span class="o">=</span> <span class="nx">closest_pair</span><span class="p">(</span> <span class="nx">midpoint</span><span class="p">.</span><span class="nx">getRight</span><span class="p">()</span> <span class="p">);</span>
+
+    <span class="nx">min_delta</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">left_delta</span><span class="p">,</span> <span class="nx">right_delta</span><span class="p">);</span>
+
+    <span class="c1">// Delete all points further than min_delta from midpoint </span>
+    <span class="nx">points</span> <span class="o">=</span> <span class="nx">midpoint</span><span class="p">.</span><span class="nx">shrink</span><span class="p">(</span> <span class="nx">min_delta</span> <span class="p">);</span> <span class="c1">// O(n)</span>
+
+    <span class="c1">// Sort remaining points by y-coordinate.</span>
+    <span class="nx">points</span><span class="p">.</span><span class="nx">sortAlongY</span><span class="p">();</span> <span class="c1">// O(n lg n)</span>
+
+    <span class="c1">// O(n)</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">points</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">distance</span><span class="p">(</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="nx">min_delta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">min_delta</span> <span class="o">=</span> <span class="nx">distance</span><span class="p">(</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nx">points</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">min_delta</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<br />
+You can see that each call is $2T(n/2) + O(n \lg n) + 2O(n) = 2T(n/2) + O(n \lg n)$, which yields $O(n \lg^2 n)$. See <a href="https://en.wikipedia.org/wiki/Closest_pair_of_points_problem">Wikipedia</a> for more, and searching &ldquo;closest pair of points&rdquo; will give you a ton of information.<br />
+</div></p>
+<!--##Problem 3 Sorting: Insertion, *heap*, merge -->
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
