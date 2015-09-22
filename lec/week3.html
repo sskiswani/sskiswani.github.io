@@ -1174,7 +1174,16 @@ As before, $a = 4$, $b=2$, and $f(n) = n^3$. Since $3 > \log_b a$, case 3 seems 
 
 <p>c. $T(n) = 4T(n/2) + n^2$</p>
 <div class="solutions" >
-We have the same constants as before, and $f(n) = n^2$. Since $\log_b a = 2$ this is a typical case 2 problem: $n^2 = \Theta(n^2). And so, $T(n) = \Theta(n^2 \log n)$.
+We have the same constants as before, and $f(n) = n^2$. Since $\log_b a = 2$ this is a typical case 2 problem: $n^2 = \Theta(n^2)$. And so, $T(n) = \Theta(n^2 \log n)$.
+</div>
+
+<p>d. $T(n) = 2T(n/4) + n\lg n$</p>
+<div class="solutions" >
+$a = 2$, $b = 4$, $f(n) = n\log n$. $\log_b a = log_4 2 = 0.5$. The third case should hold, as $n \log n = \Omega(n^{0.5 - \epsilon})$ for $\epsilon > 0$.<br />
+<br />
+First though, we must verify the regularity condition and prove $2(n/4)\log(n/4) \leq cn\log(n)$ for $c < 1$. A little algebra and $(n/2)(\log n - \log 4) \leq cn\log n$ can be satisfied for $c \leq 0.5$.
+
+Hence, $T(n) = \Theta(f(n)) = \Theta(n \log n)$
 </div>
 
 <h2 id="problem-3"><a name="user-content-problem-3" href="#problem-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Problem 3</h2>
