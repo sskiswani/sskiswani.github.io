@@ -1124,6 +1124,7 @@ img {
 <li><a href="#numpy">numpy</a></li>
 </ul>
 </li>
+<li><a href="#putting-it-all-together">Putting it all together</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -1164,6 +1165,15 @@ Then try running the install commands again. If that doesn&rsquo;t work, there&r
 <span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">format</span> <span class="o">=</span> <span class="s">&#39;ro&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">format</span><span class="p">)</span>
+
+<span class="c"># Choose some values for the domain and range of the graph.</span>
+<span class="n">x_min</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">y_min</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y_max</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c"># You could just as easily shorten it to `plt.axis([0, 6, 0 20])`.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </p>
@@ -1288,14 +1298,31 @@ Then try running the install commands again. If that doesn&rsquo;t work, there&r
 </pre></div>
 </p>
 <p>The <a href="https://docs.scipy.org/doc/numpy/reference/index.html">NumPy reference</a> has the complete list of things you can do, complete with documentation and example usages. It includes a fully featured <a href="https://docs.scipy.org/doc/numpy/reference/routines.matlib.html">matrix module</a>, a <a href="https://docs.scipy.org/doc/numpy/reference/routines.statistics.html">statistics module</a>, and <a href="https://docs.scipy.org/doc/numpy/reference/routines.linalg.html">linear algebra module</a> to name a few.</p>
-<!--
-# Putting it all together
-Let's take a simple grid of points and rotate them.
-wzxhzdk:6
- -->
+<h1 id="putting-it-all-together"><a name="user-content-putting-it-all-together" href="#putting-it-all-together" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Putting it all together</h1>
+<p>Let&rsquo;s plot a few simple functions on top of each other.</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
+<span class="c"># evenly sampled time at 200ms intervals</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c"># plot y = x as red dashes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="s">&#39;r--&#39;</span><span class="p">)</span>
+
+<span class="c"># plot y = x^2 as blue squares</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;bs&#39;</span><span class="p">)</span>
+
+<span class="c"># plot y = x^3 as green triangles</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;g^&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="Overlapping plots" src="../img/figure_5.png" /></p>
 <h1 id="references"><a name="user-content-references" href="#references" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>References</h1>
 <ul>
+<li><a href="http://nbviewer.ipython.org/github/WeatherGod/AnatomyOfMatplotlib/blob/master/AnatomyOfMatplotlib-Part0-Intro2NumPy.ipynb">Anatomy of Matplotlib</a> - Code examples and more in-depth explanations then provided here.</li>
+<li><a href="https://scipy-lectures.github.io/intro/matplotlib/matplotlib.html">Scipy Lectures</a></li>
 <li><a href="http://matplotlib.org/users/pyplot_tutorial.html">Official pyplot tutorial</a></li>
 <li><a href="https://bespokeblog.wordpress.com/2011/07/11/basic-data-plotting-with-matplotlib-part-3-histograms/">Bespoke Blog: Basic Data Plotting with Matplotlib</a></li>
 </ul></article></body></html>
