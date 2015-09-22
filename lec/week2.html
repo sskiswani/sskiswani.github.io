@@ -1129,7 +1129,7 @@ MathJax.Hub.Config({
 <div class="solutions"><br />
 <a href="https://www.xkcd.com/221/">Suppose <code>Math.random()</code> <em>always</em> returned 0</a>, then this code will just do a linear scan and run in something like $O(n)$. </p>
 <p>However, it&rsquo;s probably safe to assume that <code>Math.random()</code> is a uniform random variable. As such, the value of <code>pivot</code> is most likely going to be <em>approximately</em> halfway between <code>left</code> and <code>right</code>. Cutting the search space in half on every iteration yields something like $O(\lg n)$.</p>
-<p>To be pedantic, you could say this code is bounded by $\Omega(n)$ and $O(\lg n)$.<br />
+<p>To be pedantic, you could say this code is bounded by $O(n)$ and $\Omega(\lg n)$.<br />
 </div></p>
 <p><strong>b.</strong> The following code segment sorts an array of boxes, and then checks for overlapping pairs. Each box is defined by a min and max value for each axis. Two boxes overlap if they overlap on every axis.</p>
 <p><center><img src="../img/sweep.png"/><br />
