@@ -1,0 +1,1366 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="authors" content="Sam">
+<meta name="summary" content="A presentation"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAzUABAAAAAAFNgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABbAAAABwAAAAcZMzaOEdERUYAAAGIAAAAHQAAACAAOQAET1MvMgAAAagAAAA+AAAAYHqhde9jbWFwAAAB6AAAAFIAAAFa4azkLWN2dCAAAAI8AAAAKAAAACgFgwioZnBnbQAAAmQAAAGxAAACZVO0L6dnYXNwAAAEGAAAAAgAAAAIAAAAEGdseWYAAAQgAAAFDgAACMz7eroHaGVhZAAACTAAAAAwAAAANgWEOEloaGVhAAAJYAAAAB0AAAAkDGEGa2htdHgAAAmAAAAAEwAAADBEgAAQbG9jYQAACZQAAAAaAAAAGgsICJBtYXhwAAAJsAAAACAAAAAgASgBD25hbWUAAAnQAAACZwAABOD4no+3cG9zdAAADDgAAABsAAAAmF+yXM9wcmVwAAAMpAAAAC4AAAAusPIrFAAAAAEAAAAAyYlvMQAAAADLVHQgAAAAAM/u9uZ4nGNgZGBg4ANiCQYQYGJgBEJuIGYB8xgABMMAPgAAAHicY2Bm42OcwMDKwMLSw2LMwMDQBqGZihmiwHycoKCyqJjB4YPDh4NsDP+BfNb3DIuAFCOSEgUGRgAKDgt4AAB4nGNgYGBmgGAZBkYGEAgB8hjBfBYGCyDNxcDBwMTA9MHhQ9SHrA8H//9nYACyQyFs/sP86/kX8HtB9UIBIxsDXICRCUgwMaACRoZhDwA3fxKSAAAAAAHyAHABJQB/AIEAdAFGAOsBIwC/ALgAxACGAGYAugBNACcA/wCIeJxdUbtOW0EQ3Q0PA4HE2CA52hSzmZDGe6EFCcTVjWJkO4XlCGk3cpGLcQEfQIFEDdqvGaChpEibBiEXSHxCPiESM2uIojQ7O7NzzpkzS8qRqnfpa89T5ySQwt0GzTb9Tki1swD3pOvrjYy0gwdabGb0ynX7/gsGm9GUO2oA5T1vKQ8ZTTuBWrSn/tH8Cob7/B/zOxi0NNP01DoJ6SEE5ptxS4PvGc26yw/6gtXhYjAwpJim4i4/plL+tzTnasuwtZHRvIMzEfnJNEBTa20Emv7UIdXzcRRLkMumsTaYmLL+JBPBhcl0VVO1zPjawV2ys+hggyrNgQfYw1Z5DB4ODyYU0rckyiwNEfZiq8QIEZMcCjnl3Mn+pED5SBLGvElKO+OGtQbGkdfAoDZPs/88m01tbx3C+FkcwXe/GUs6+MiG2hgRYjtiKYAJREJGVfmGGs+9LAbkUvvPQJSA5fGPf50ItO7YRDyXtXUOMVYIen7b3PLLirtWuc6LQndvqmqo0inN+17OvscDnh4Lw0FjwZvP+/5Kgfo8LK40aA4EQ3o3ev+iteqIq7wXPrIn07+xWgAAAAABAAH//wAPeJyFlctvG1UUh+/12DPN1B7P3JnYjj2Ox4/MuDHxJH5N3UdaEUQLqBIkfQQioJWQ6AMEQkIqsPGCPwA1otuWSmTBhjtps2ADWbJg3EpIXbGouqSbCraJw7kzNo2dRN1cnXN1ZvT7zuuiMEI7ncizyA0URofRBJpCdbQuIFShYY+GZRrxMDVtih5TwQPHtXDFFSIKoWIbuREBjLH27Ny4MsbVx+uOJThavebgVrNRLAiYx06rXsvhxLgWx9xpfHdrs/ekc2Pl2cpPCVEITQpwbj8VQhfXSq2m+Wxqaq2D73Kne5e3NjHqQNj3CRYlJlgUl/jRNP+2Gs2pNYRQiOnmUaQDqm30KqKiTTWPWjboxnTWpvgxjXo0KrtZXAHt7hwIz0YVcj88JnKlJKi3NPAwLyDwZudSmJSMMJFDYaOkaol6XtESx3Gt1VTytdZJ3DCLeaVhVnCBH1fycHTxFXwPX+l2e3d6H/TufGGmMTLTnbSJUdo00zuBswMO/nl3YLeL/wnu9/limCuD3vC54h5NBVz6Li414AI8Vx3iiosKcQXUbrvhFFiYb++HN4DaF4XzFW0fIN4XDWJ3a3XQoq9V8WiyRmdsatV9xUcHims1JloH0YUa090G3Tro3mC6c01f+YwCPquINr1PTaCP6rVTOOmf0GE2dBc7zWIhji3/5MchSuBHgDbU99RMWt3YUNMZMJmx92YP6NsHx/5/M1yvInpnkIOM3Z8fA3JQ2lW1RFC1KaBPDFXNAHYYvGy73aYZZZ3HifbeuiVZCpwA3oQBs0wGPYJbJfg60xrKEbKiNtTe1adwrpBRwlAuQ3q3VRaX0QmQ9a49BTSCuF1MLfQ6+tinOubRBZuWPNoMevGMT+V41KitO1is3D/tpMcq1JHZqDHGs8DoYGDkxJgKjHROeTCmhZvzPm9pod+ltKm4PN7Dyvvldlpsg8D+4AUJZ3F/JBstZz7cbFRxsaAGV6yX/dkcycWf8eS3QlQea+YLjdm3yrOnrhFpUyKVvFE4lpv4bO3Svx/6F/4xmiDu/RT5iI++lko18mY1oX+5UGKR6kmVjM/Zb76yfHtxy+h/SyQ0lLdpdKy/lWB6szatetQJ8nZ80A2Qt6ift6gJeavU3BO4gtxs/KCtNPVibCtYCWY3SIlSBPKXZALXiIR9oZeJ1AuMyxLpHIy/yO7vSiSE+kZvk0ihJ30HgHfzZtEMmvV58x6dtqns0XTAW7Vdm4HJ04OCp/crOO7rd9SGxQAE/mVA9xRN+kVSMRFF6S9JFGUtthkjBA5tFCWc2l4V43Ex9GmUP3SI37Jjmir9KqlaDJ4S4JB3vuM/jzyH1+8MuoZ+QGzfnvPoJb96cZlWjMcKLfgDwB7E634JTY+asjsPzS5CiVnEWY+KsrsIN5rn3mAPjqmQBxGjcGKB9f9ZxY3mYC2L85CJ2FXIxKKyHk+dg0FHbuEc7D5NzWUX32WxFcWNGRAbvwSx0RmIXVDuYySafluQBmzA/ssqJAMLnli+WIC90Gw4lm85wcp0qjArEDPJJV/sSx4P9ungTpgMw5gVC1XO4uULq0s3v1rqLi0vX/z65vlH50f8T/RHmSPTk5xxWBWOluMT6WiOy+tdvWxlV/XQb3o3c6Ssr+r6I708GsX9/nzp1tKFh0s3v7m4vAy/Hnb/KMOvc1wump6Il48K6mGDy02X9Yd65pa+nQIjk76lWxCkG8NBCP0HQS9IpAAAeJxjYGRgYGBhcCrq214Qz2/zlUGenQEEzr/77oug/zewFbB+AHI5GJhAogBwKQ0qeJxjYGRgYH3/P46BgZ0BBNgKGBgZUAEPAE/7At0AAAB4nGNngAB2IGYjhBsYBAAIYADVAAAAAAAAAAAAAFwAyAEeAaACCgKmAx4DggRmAAAAAQAAAAwAagAEAAAAAAACAAEAAgAWAAABAAChAAAAAHiclZI7bxQxFIWPd/JkUYQChEhIyAVKgdBMskm1QkKrRETpQiLRUczueB/K7HhlOxttg8LvoKPgP9DxFxANDR0tHRWi4NjrPIBEgh1p/dm+vufcawNYFWsQmP6e4jSyQB2fI9cwj++RE9wTjyPP4LYoI89iWbyLPIe6+Bh5Hs9rryMv4GbtW+RF3EhuRa7jbrIbeQkPkjdUETOLnL0Kip4FVvAhco1RXyMnSPEz8gzWxE7kWTwUp5HnsCLeR57HW/El8gJWa58iL+JO7UfkOh4l9yMv4UnyEtvQGGECgwF66MNBooF1bGCL1ELB/TYU+ZBRlvsKQ44Se6jQ4a7hef+fh72Crv25kp+8lNWGmeKoOI5jJLb1aGIGvb6TjfWNLdkqdFvJw4l1amjlXtXRZqRN7lSRylZZyhBqpVFWmTEXgWfUrpi/hZOQXdOd4rKuXOtEWT3k5IArPRzTUU5tHKjecZkTpnVbNOnt6jzN8240GD4xtikvZW56043rPMg/dS+dlOceXoR+WPbJ55Dsekq1lJpnypsMUsYOdCW30o103Ytu/lvh+5RWFLfBjm9/N8hJntPhvx92rnoE/kyHdGasGy754kw36vsVf/lFeBi+0COu+cfgQr42G3CRpeLoZ53gmfe3X6rcKt5oVxnptHR9JS8ehVUd5wvvahN2uqxOOpMXapibI5k7Zwbt4xBSaTfoKBufhAnO/uqNcfK8OTs0OQ6l7JIqFjDhYj5WcjevCnI/1DDiI8j4ndWb/5YzDZWh79yomWXeXj7Nnw70/2TIeFPTrlSh89k1ObOSRVZWZfgF0r/zJQB4nG2JUQuCQBCEd07TTg36fb2IyBaLd3vWaUh/vmSJnvpgmG8YcmS8X3Shf3R7QA4OBUocUKHGER5NNbOOEvwc1txnuWkTRb/aPjimJ5vXabI+3VfOiyS15UWvyezM2xiGOPyuMohOH8O8JiO4Af+FsAGNAEuwCFBYsQEBjlmxRgYrWCGwEFlLsBRSWCGwgFkdsAYrXFhZsBQrAAA=) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>.codehilite pre .hll { background-color: #f8eec7 }
+.codehilite pre  { background: #ffffff; color: #333333 }
+.codehilite pre .c { color: #999988; font-style: italic } /* Comment */
+.codehilite pre .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.codehilite pre .k { font-weight: bold } /* Keyword */
+.codehilite pre .n { color: #333333 } /* Name */
+.codehilite pre .o { font-weight: bold } /* Operator */
+.codehilite pre .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.codehilite pre .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.codehilite pre .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.codehilite pre .cs { color: #999988; font-style: italic } /* Comment.Special */
+.codehilite pre .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.codehilite pre .ge { font-style: italic } /* Generic.Emph */
+.codehilite pre .gr { color: #aa0000 } /* Generic.Error */
+.codehilite pre .gh { color: #999999 } /* Generic.Heading */
+.codehilite pre .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.codehilite pre .go { color: #888888 } /* Generic.Output */
+.codehilite pre .gp { color: #555555 } /* Generic.Prompt */
+.codehilite pre .gs { font-weight: bold } /* Generic.Strong */
+.codehilite pre .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.codehilite pre .gt { color: #aa0000 } /* Generic.Traceback */
+.codehilite pre .kc { font-weight: bold } /* Keyword.Constant */
+.codehilite pre .kd { font-weight: bold } /* Keyword.Declaration */
+.codehilite pre .kn { font-weight: bold } /* Keyword.Namespace */
+.codehilite pre .kp { font-weight: bold } /* Keyword.Pseudo */
+.codehilite pre .kr { font-weight: bold } /* Keyword.Reserved */
+.codehilite pre .kt { font-weight: bold } /* Keyword.Type */
+.codehilite pre .m { color: #945277 } /* Literal.Number */
+.codehilite pre .s { color: #df5000 } /* Literal.String */
+.codehilite pre .na { color: #008080 } /* Name.Attribute */
+.codehilite pre .nb { color: #0086b3 } /* Name.Builtin */
+.codehilite pre .nc { color: #445588; font-weight: bold } /* Name.Class */
+.codehilite pre .no { color: #094e99 } /* Name.Constant */
+.codehilite pre .nd { color: #333333 } /* Name.Decorator */
+.codehilite pre .ni { color: #800080 } /* Name.Entity */
+.codehilite pre .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.codehilite pre .nf { color: #945277; font-weight: bold } /* Name.Function */
+.codehilite pre .nl { color: #333333 } /* Name.Label */
+.codehilite pre .nn { color: #555555 } /* Name.Namespace */
+.codehilite pre .nx { color: #333333 } /* Name.Other */
+.codehilite pre .py { color: #333333 } /* Name.Property */
+.codehilite pre .nt { color: #000080 } /* Name.Tag */
+.codehilite pre .nv { color: #008080 } /* Name.Variable */
+.codehilite pre .ow { font-weight: bold } /* Operator.Word */
+.codehilite pre .w { color: #bbbbbb } /* Text.Whitespace */
+.codehilite pre .mb { color: #945277 } /* Literal.Number.Bin */
+.codehilite pre .mf { color: #945277 } /* Literal.Number.Float */
+.codehilite pre .mh { color: #945277 } /* Literal.Number.Hex */
+.codehilite pre .mi { color: #945277 } /* Literal.Number.Integer */
+.codehilite pre .mo { color: #945277 } /* Literal.Number.Oct */
+.codehilite pre .sb { color: #df5000 } /* Literal.String.Backtick */
+.codehilite pre .sc { color: #df5000 } /* Literal.String.Char */
+.codehilite pre .sd { color: #df5000 } /* Literal.String.Doc */
+.codehilite pre .s2 { color: #df5000 } /* Literal.String.Double */
+.codehilite pre .se { color: #df5000 } /* Literal.String.Escape */
+.codehilite pre .sh { color: #df5000 } /* Literal.String.Heredoc */
+.codehilite pre .si { color: #df5000 } /* Literal.String.Interpol */
+.codehilite pre .sx { color: #df5000 } /* Literal.String.Other */
+.codehilite pre .sr { color: #017936 } /* Literal.String.Regex */
+.codehilite pre .s1 { color: #df5000 } /* Literal.String.Single */
+.codehilite pre .ss { color: #8b467f } /* Literal.String.Symbol */
+.codehilite pre .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.codehilite pre .vc { color: #008080 } /* Name.Variable.Class */
+.codehilite pre .vg { color: #008080 } /* Name.Variable.Global */
+.codehilite pre .vi { color: #008080 } /* Name.Variable.Instance */
+.codehilite pre .il { color: #945277 } /* Literal.Number.Integer.Long */</style><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: false
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  showProcessingMessages: false
+});
+</script>
+<title>Teaching Music to a Computer</title></head><body><article class="markdown-body"><h1>Teaching Composition to a Computer
+<em style="font-size:0.5em;">&nbsp; &nbsp; &nbsp;... for people who <strike>don't</strike> know music</em></h1>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<h2>Table of Contents</h2>
+
+<div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#common-techniques">Common Techniques</a><ul>
+<li><a href="#markov-chains">Markov Chains</a><ul>
+<li><a href="#the-madlib-approach">The Madlib Approach</a></li>
+</ul>
+</li>
+<li><a href="#genetic-algorithms">Genetic Algorithms</a></li>
+<li><a href="#neural-networks">Neural Networks</a></li>
+</ul>
+</li>
+<li><a href="#previous-work">Previous Work</a><ul>
+<li><a href="#functional-scaffolding-for-musical-composition">Functional Scaffolding for Musical Composition</a></li>
+<li><a href="#an-unnatural-selection">An Unnatural Selection</a></li>
+</ul>
+</li>
+<li><a href="#my-work">My Work</a><ul>
+<li><a href="#melody-generator-for-lyrics">Melody Generator for Lyrics</a></li>
+<li><a href="#baesil">BAESIL</a></li>
+</ul>
+</li>
+<li><a href="#future-work">Future Work</a></li>
+<li><a href="#see-also">See Also</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<hr />
+<h1 id="introduction"><a name="user-content-introduction" href="#introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Introduction</h1>
+<p>Algorithmic and generative music composition tends to fall under the vast umbrella of Computational Creativity, a relatively new field of research.</p>
+<dl>
+<dt><strong>Computational Creativity</strong></dt>
+<dd>
+<ul>
+<li>Computational creativity is a multidisciplinary endeavour that is located at the intersection of the fields of artificial intelligence, cognitive psychology, philosophy, and the arts. <a href="http://computationalcreativity.net/home/about/computational-creativity/">Read more&hellip;</a></li>
+</ul>
+</dd>
+</dl>
+<p>The goals of computational creativity are</p>
+<ul>
+<li>to construct a program or computer capable of human-level creativity</li>
+<li>to better understand human creativity and to formulate an algorithmic perspective on creative behavior in humans</li>
+<li>to design programs that can enhance human creativity without necessarily being creative themselves</li>
+</ul>
+<p>These are rather lofty goals, but represent incredibly important directions for A.I. research, and for our own understanding of creativity. As the field has grown, there&rsquo;s been a shift from &lsquo;mere generation&rsquo; to evaluation methods &ndash; e.g. what are the <em>measures</em> of creativity, what distinguishes creative work from uncreative work?</p>
+<p>There&rsquo;s a whole slew of interesting work that&rsquo;s been done already, some examples are:</p>
+<ul>
+<li><a href="http://thepaintingfool.com/">The Painting Fool</a> - a computer artist who has received comissions for his/her/its work.</li>
+<li><a href="http://twitter.com/MetaphorMagnet">MetaphorMagnet</a> - a twitter bot that comes up with its own metaphors (and more!).</li>
+</ul>
+<p>Although here, the focus will be on music composition.</p>
+<hr />
+<h1 id="common-techniques"><a name="user-content-common-techniques" href="#common-techniques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Common Techniques</h1>
+<p>Most techniques focus on &lsquo;mere generation&rsquo; of music &ndash; that is, there isn&rsquo;t much in the way of evaluation techniques &ndash; and are generally applications of machine learning research. The most common approach is to &lsquo;learn&rsquo; a style of composition from a source corpora, and generate music that is similar to the source.</p>
+<h2 id="markov-chains"><a name="user-content-markov-chains" href="#markov-chains" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Markov Chains</h2>
+<p>Markov Chains are incredibly simple and generally have interesting output, hence their popularity. Markov based compositions tend to lack any high-level structure, although there have been attempts to remedy this problem. One of the most interesting involves a scheme similar to generating and filling in madlibs <a href="#madlib">[5]</a>.</p>
+<h3 id="the-madlib-approach"><a name="user-content-the-madlib-approach" href="#the-madlib-approach" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Madlib Approach</h3>
+<ol>
+<li>
+<p><strong>Structure Generation:</strong> Sketch out the piece by identifying something like a rhyme scheme for phrases and/or motifs; e.g. ABAA BBCB.<br />
+<center><img src="../img/structure.png" style='margin: auto; width: 40%;' /></center></p>
+</li>
+<li>
+<p><strong>Chord Generation:</strong> Place chords by assigning each a root note to each &lsquo;blank&rsquo;.<br />
+<center><img src="../img/chords.png" style='margin: auto; width: 40%;' /></center></p>
+</li>
+<li>
+<p><strong>Melody Generation:</strong> Generate notes corresponding to the chord for each measure.<br />
+<center><img src="../img/melody.png" style='margin: auto; width: 50%;' /></center></p>
+</li>
+</ol>
+<h2 id="genetic-algorithms"><a name="user-content-genetic-algorithms" href="#genetic-algorithms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Genetic Algorithms</h2>
+<p>The algorithmic version of natural selection. Given an initial population, there are generally three steps to a genetic algorithm.</p>
+<ol>
+<li><strong>Selection</strong> &ndash; Assign every member of the population a fitness score, which measures how &lsquo;good&rsquo; that member is.</li>
+<li><strong>Mating</strong> &ndash; Combine the most members with the highest fitness scores to create a new generation of &lsquo;children&rsquo;.</li>
+<li><strong>Mutation</strong> &ndash; Randomly change the values of the &lsquo;children&rsquo;.</li>
+</ol>
+<p>For example, consider a situation where you have 10 Markov Chains from 10 different places, and your fitness function is just the probability of outputting a C#. The steps would then be: </p>
+<ol>
+<li><strong>Selection</strong> &ndash; Choose the five Markov Chains with the highest probability of outputting a C#.</li>
+<li><strong>Mating</strong> &ndash; For every possible pair from the previous step, create a new Markov Chain that uses half of the probabilities from one parent, and half from the other. </li>
+<li><strong>Mutation</strong> &ndash; Randomly change the probabilities for the children generated from the previous step.</li>
+</ol>
+<h2 id="neural-networks"><a name="user-content-neural-networks" href="#neural-networks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Neural Networks</h2>
+<p>Neural Networks are the algorithmic version of neurons in the brain. The way it works is that each node can be &lsquo;on&rsquo; or &lsquo;off&rsquo;, and if a neuron is &lsquo;on&rsquo;, it has a probability of activating connected neurons (e.g. turning them &lsquo;on&rsquo; as well). Do this a bunch of times until you get to the <em>output</em> neurons, and you have the result.<br />
+<center><img src='https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg' style='margin: auto; width: 50%;' /></center></p>
+<p>This method has been very successful in practice <a href="#cmrnn">[3]</a>, although doesn&rsquo;t vary much in style.</p>
+<hr />
+<h1 id="previous-work"><a name="user-content-previous-work" href="#previous-work" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Previous Work</h1>
+<h2 id="functional-scaffolding-for-musical-composition"><a name="user-content-functional-scaffolding-for-musical-composition" href="#functional-scaffolding-for-musical-composition" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functional Scaffolding for Musical Composition</h2>
+<p><em>Functional scaffolding for musical composition</em> (FSMC) by Hoover <em>et. al.</em> <a href="#fsmc">[1]</a> details a method of music generation which enables a user to create complete multipart arrangements from a single monophonic track without the need for musical expertise. This is an example of computer-assisted creativity, where a novice can create something beyond their expertise with the help of a computer.</p>
+<p>In essence, the source monophonic melody serves as the <em>scaffold</em> or musical starting point of the system. FSMC then allows the user to explore potential accompaniments from this scaffold. Each instrument in the scaffold is generated using neural networks. Users can navigate the musical space by using an interface (MaestroGenesis, in the paper), and thums-up or thumps-down accompaniments to evolve the neural networks to help the system generate music more in line with what they&rsquo;re looking for.</p>
+<p>Examples of the kind of output this system generates can be found <a href="http://eplex.cs.ucf.edu/fsmc/iccc2012/">here</a>.</p>
+<h2 id="an-unnatural-selection"><a name="user-content-an-unnatural-selection" href="#an-unnatural-selection" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>An Unnatural Selection</h2>
+<p>A live generative music project by Arne Eignfeldt <a href="#unsel">[2]</a> which generates music during a performance, meant to be sight-read by musicians.</p>
+<p>From the program notes:</p>
+<blockquote>
+<p>Musical ideas are born, are passed on to new generations and evolved, and eventually die out, replaced by new ideas</p>
+</blockquote>
+<p>In short, a genetic algorithm is used to <em>unfold</em> the music over time. Here, each instrument is a different population, each phrase an individual with the rhythmic and melodic material of the phrase acting as its chromosomes.</p>
+<p>So like natural selection, individuals in a population breed together to produce new &lsquo;offspring&rsquo; which may be subject to random mutations. Interestingly, there is no fitness function in this work; all individuals pass to the next generation.</p>
+<p>Here&rsquo;s an overview:</p>
+<ul>
+<li>Uses a genetic algorithm to unfold the music over time.</li>
+<li>Each instrument corresponds to a different <em>population</em>.<ul>
+<li>Each phrase is an individual.</li>
+<li>Its rhythmic and melodic material are chromosomes.</li>
+</ul>
+</li>
+<li>In the beginning, some initial phrases are generated that are a few measures long.</li>
+<li>For each subsequent generation:<ul>
+<li>Every individual (phrase) is segmented according to interval size, rests, and duration spanning from one to several beats.</li>
+<li>Some of the segments enter a pool where random crossover (mixing) of segments between populations. There is also a potential for mutation:<ul>
+<li>scrambling of pitch class</li>
+<li>transposition of +/- 12 pitch-classes</li>
+<li>sort pitch class in ascending or descending order</li>
+<li>substitute rests for notes</li>
+</ul>
+</li>
+<li>There is no fitness function; all individuals pass to the next generation (if the instrument is active).</li>
+</ul>
+</li>
+</ul>
+<p>The following corpora was used:</p>
+<ul>
+<li><strong>Movement I</strong>: 19 compositions by Pat Metheny</li>
+<li><strong>Movement II</strong>: 2 compositions by Pat Metheny and 2 by Arvo Pärt</li>
+<li><strong>Movement III</strong>: 1 composition by Terry Riley and 2 by Pat Metheny</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v=ILL-eDwdnDg">An Unnatural Selection: I - Imagination is a Way</a><br />
+<div class="video" style="padding: 0; width: 560px; height: 315px; background: #aaa; margin:auto; cursor: pointer;"></div></p>
+<p>To quote the author:</p>
+<blockquote>
+<p>Whether the system is computationally creative is a more difficult matter to determine. While I echo Cope’s desire that “what matters most is the music” (Cope 2005)<sup id="fnref:cope05"><a class="footnote-ref" href="#fn:cope05" rel="footnote">1</a></sup>, I am fully aware of Wiggins reservations that “with hand-coded rules of whatever kind, we can never get away from the claim that the creativity is coming from the programmer and not the program” (Wiggins 2008)<sup id="fnref:wiggins08"><a class="footnote-ref" href="#fn:wiggins08" rel="footnote">2</a></sup></p>
+</blockquote>
+<hr />
+<h1 id="my-work"><a name="user-content-my-work" href="#my-work" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>My Work</h1>
+<p>I&rsquo;ve only just begun working on generative music and so my approaches are rather naive and lack any solid theoretical background (though hopefully improving).</p>
+<h2 id="melody-generator-for-lyrics"><a name="user-content-melody-generator-for-lyrics" href="#melody-generator-for-lyrics" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Melody Generator for Lyrics</h2>
+<p>This system receives a lyrical phrase as input and generates a melody for it. I&rsquo;m working on this project for my Master&rsquo;s thesis in Computer Science. It&rsquo;s still just getting started, but thus far the way it works is:</p>
+<ol>
+<li>Break the lyrical phrase into individual syllables</li>
+<li>Initially, assign a quarter note to each syllable</li>
+<li>Increase the duration of syllables that are vowels by a random amount.</li>
+<li>Assign pitches to the syllable durations</li>
+</ol>
+<p>Currently, pitches are assigned using a Markov Chain trained on folk music. The analysis of syllables is done using <a href="https://github.com/cmusphinx/cmudict">CMUdict (the Carnegie Mellon Pronouncing Dictionary)</a>, which yields the IPA (International Phonetic Alphabet) pronunciation for each word. This allows us to check for syllables that are vowels.</p>
+<h2 id="baesil"><a name="user-content-baesil" href="#baesil" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>BAESIL</h2>
+<p>B.A.E.S.I.L. (an acronym for <em>BAESIL Automates Exploratory Songwriting Interactively, Live</em>) is a composition tool which uses generative music methods to help a user write a song, initially targeted at game developers. BAESIL is largely inspired by the concept of <em>casual creators</em> <a href="#casual">[4]</a>. </p>
+<p>Essentially, BAESIL is used to help a user <em>discover</em> the music they want, rather than compose it from scratch.</p>
+<p><center><img src="../img/jambro_initial.png" /></center></p>
+<p>To generate music, BAESIL uses a pair of Markov Chains &ndash; one for pitch and one for duration. Users upload music to serve as an initial corpora. Users can then edit, regenerate, delete, and cut/copy/paste notes as they desire.</p>
+<p>The eventual goal of BAESIL is to use genetic algorithms so that the user can train the system to generate the kind of music they want, by using a &ldquo;thumbs-up&rdquo;/&rdquo;thumbs-down&rdquo; type of system. The user can also bookmark sections that they like and paste them wherever they&rsquo;d like &ndash; essentially like a word processor.</p>
+<p><center><img src="../img/jambro_genetics.png" /></center></p>
+<p>The way I plan to implement the evolutionary process is as follows:</p>
+<ul>
+<li>Markov Chains are  created for each song in the initial corpora, as well as another pair representing the entire corpus. </li>
+<li>The system measures <em>interval standard deviation</em>, <em>simultaneous onset of notes</em>, <em>simultaneous onset of rests</em>, and <em>rests on downbeats</em> to quantify features about the music.</li>
+<li>Whenever the user wants to move to the next generation, all the Markov Chains in the current generation are &ldquo;bred&rdquo; together to produce new Markov Chains. This is done by taking half of the values from one parent, and half from the other.</li>
+<li>Each child in the new generation generates a melody, and the melody is compared to the initial measures. The &ldquo;worst&rdquo; half are thrown out. </li>
+</ul>
+<p>Currently, I&rsquo;m not satisfied with this approach as I don&rsquo;t think this will have great results, but it serves as an initial direction. Essentially, I&rsquo;m working to build upon the work of <a href="#fsmc">[1]</a> in this project.</p>
+<hr />
+<h1 id="future-work"><a name="user-content-future-work" href="#future-work" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Future Work</h1>
+<p>Generative music is still a relatively new concept, in the sense that there is a great deal of work to be done. More specifically, the elephant in the room is the analysis of musicial structure. Most of these methods involve generating music given an initial corpora without much scrunity to sound compositional practices. </p>
+<p>Given the breadth and difficulty of this task, lots of interesting methods exist but none that can satisfactorily write a piece of music that sounds like Bach&rsquo;s interpretation of Coltrane, for example.</p>
+<hr />
+<h1 id="see-also"><a name="user-content-see-also" href="#see-also" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>See Also</h1>
+<ol>
+<li>
+<dl>
+<dt><strong>Evaluating Musical Metacreation</strong></dt>
+<dd>&ndash; Arne Eigenfeldt, Philippe Pasquier and Adam Burnett [<a href="http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/140-Eigenfeldt.pdf">pdf</a>]</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Critical issues in evaluating freely improvising interactive music systems</strong></dt>
+<dd>&ndash; Adam Linson, Chris Dobbyn and Robin Laney [<a href="http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/145-Linson.pdf">pdf</a>]</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Player Responses to a Live Algorithm: Conceptualising computational creativity without recourse to human comparisons?</strong></dt>
+<dd>
+<p>&ndash; Oliver Bown [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/6.1Bown.pdf">pdf</a>]</p>
+</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Collaborative Composition with Creative Systems: Reflections on the First Musebot Ensemble</strong></dt>
+<dd>&ndash; Arne Eigenfeldt, Oliver Bown and Benjamin Casey [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/6.2Eigenfeldt.pdf">pdf</a>]</dd>
+</dl>
+</li>
+<li><a href="http://metacreation.net/"><strong>Metacreation Lab</strong></a></li>
+</ol>
+<hr />
+<h1 id="references"><a name="user-content-references" href="#references" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>References</h1>
+<ol>
+<li>
+<dl>
+<dt id="fsmc"><strong>Generating a Complete Multipart Musical Composition from a Single Monophonic Melody with Functional Scaffolding</strong></dt>
+<dd>&ndash; Amy K. Hoover, Paul A. Szerlip, Marie E. Norton, Trevor A. Brindle, Zachary Merritt and Kenneth O. Stanley [<a href="http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/111-Hoover.pdf">pdf</a>]</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt id="unsel"><strong>Generative Music for Live Musicians: An Unnatural Selection</strong></dt>
+<dd>&ndash; Arne Eigenfeldt [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/6.3Eigenfeldt.pdf">pdf</a>]</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt id="cmrnn"><strong>Composing Music With Recurrent Neural Networks</strong></dt>
+<dd>&ndash; Daniel Johnson [<a href="http://www.hexahedria.com/2015/08/03/composing-music-with-recurrent-neural-networks/">article</a>]</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt id="casual"><strong>Casual Creators</strong></dt>
+<dd>&ndash; Kate Compton and Michael Mateas [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/10.2Compton.pdf">pdf</a>, <a href="http://www.casualcreator.com/blog/">blog</a>]</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt id="madlib"><strong>Algorithmic Compositions Based on Discovered Musical Patterns</strong></dt>
+<dd>&ndash; Shan Man-Kawn and Chiu Shih-Chuan</dd>
+</dl>
+</li>
+</ol>
+<script>
+$('.video').on('click', function() {
+    var embd = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/ILL-eDwdnDg" frameborder="0" allowfullscreen></iframe>');
+    $(this).append(embd);
+    console.info('hi');
+});
+</script>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:cope05">
+<p>Cope, D. 2005. <em>Computer models of musical creativity</em>, Cambridge: MIT Press.&#160;<a class="footnote-backref" href="#fnref:cope05" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:wiggins08">
+<p>Wiggins, G. 2008. Computer Models of Musical Creativity: A Review of Computer Models of Musical Creativity by David Cope, <em>Literary and Linguistic Computing</em>, 10(1), 109–116.&#160;<a class="footnote-backref" href="#fnref:wiggins08" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></article></body></html>
