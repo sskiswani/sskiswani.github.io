@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>music_generator.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>music_generator.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>You can see the actual code file <a href="music_generator.py">here</a>.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">music21</span> <span class="kn">import</span> <span class="o">*</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Generates the trigrams of an array of elements. For example, if <code>data = [a, b, c, d]</code> then the
+output will be <code>[[a,b,c], [b,c,d]]</code>.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_trigrams</span><span class="p">(</span><span class="n">data</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Helper function that, when given a dictionary of keys and weights, chooses a random key based on its weight.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">weighted_choice</span><span class="p">(</span><span class="n">states</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">states</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">val</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">key</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="n">val</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Something went wrong, don't make a choice.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="bp">None</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>This is the entry point of our music generator.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Create the Markov Chain. I use <code>defaultdict</code> as a simple (error-free) counter. This just
+means that every key in the dictionary has a default value. If a key isn't in the dictionary
+then it will automatically have a value generated. The <code>lambda: defaultdict(int)</code> means the
+default value will be <em>another</em> dictionary which sets the default values to zero.</p>
+<p>So if you wrote <code>markov['test']</code> you would get a <code>defaultdict</code>. Going one step further,
+you could write <code>markov['a']['b']</code> which would result in 0. This let's you write a counter
+in the form <code>markov['a']['b'] += 1</code> without getting a <code>KeyError</code>.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">markov</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>There are a few ways to initialize the Markov Chain. Here, I choose to treat all the parts
+in the source material equally.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">sourceMaterial</span> <span class="o">=</span> <span class="n">corpus</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s">&#39;bach/bwv7.7&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">sourceMaterial</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+        <span class="n">notes</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">flat</span><span class="o">.</span><span class="n">notes</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Generate trigrams for each part.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">for</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">w3</span><span class="p">)</span> <span class="ow">in</span> <span class="n">get_trigrams</span><span class="p">(</span><span class="n">notes</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Update the tally for this combination.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="n">markov</span><span class="p">[(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)][</span><span class="n">w3</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>Create a music21 stream to hold the result</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">stream</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">Stream</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>You can use the following code for a preview of the Markov Chain probabilites:
+<code>for state in markov: print('%r =&gt; %r' % (state, markov[state]))</code></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Use random to pick a random initial state (or set it yourself).
+You can preview it by writing <code>print("Initial State: %s" % repr(start_state))</code></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">start_state</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">markov</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>Now start 'walking' along the Markov Chain to generate stuff. Unfortunately, the hard part
+is knowing when to stop. Here I say I want a song no longer than 30 notes, and if there's
+a dead-end, stop immediately. Naturally, there are much better ways to do this.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">start_state</span>
+    <span class="n">max_length</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_length</span><span class="p">):</span>
+        <span class="n">next_state</span> <span class="o">=</span> <span class="n">weighted_choice</span><span class="p">(</span><span class="n">markov</span><span class="p">[(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">next_state</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span> <span class="k">break</span>
+        <span class="n">stream</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_state</span><span class="p">)</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">s2</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">next_state</span>
+
+    <span class="n">stream</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s">&#39;midi&#39;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
