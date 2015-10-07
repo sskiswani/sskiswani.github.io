@@ -1107,12 +1107,15 @@ MathJax.Hub.Config({
 </script>
 <title>Greedy Algorithms and Dynamic Programming</title></head><body><article class="markdown-body"><h1 id="exam-review"><a name="user-content-exam-review" href="#exam-review" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Exam Review</h1>
 <h2 id="longest-common-substring"><a name="user-content-longest-common-substring" href="#longest-common-substring" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Longest Common Substring</h2>
-<p><div class='ctrl' style='text-align:center;'><br />
-   <label>A: <input type='text' id='w1' style='font-family: monospace;' /></label><br />
-   <label>B: <input type='text' id='w2' style='font-family: monospace;' /></label><br />
-</div><br />
-<div id='output' style='text-align:center;'><br />
-</div></p>
+<p>Given two strings A and B, this will find the length of the longest common substring. (hit enter in the text box to force it to update). The arrows point in the direction of the subproblem used to calculate that cell.</p>
+<div class='ctrl' style='text-align:center;'>
+   <label>A: <input type='text' id='w1' style='font-family: monospace;' /></label>
+   <label>B: <input type='text' id='w2' style='font-family: monospace;' /></label>
+</div>
+
+<div id='output' style='text-align:center;'>
+</div>
+
 <h2 id="quicksort"><a name="user-content-quicksort" href="#quicksort" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Quicksort</h2>
 <p>For the following questions, assume that the pivot is always chosen to be the last element in the partition.</p>
 <p>a. What kind of input causes worst case behavior? <br />
@@ -1124,9 +1127,9 @@ Given that the pivot is always chosen to be the last element in the partition, t
 The recurrence for the worst case is $T(n) = T(n-1) + \Theta(n)$, where $\Theta(n)$ is the time to partition.<br/><br/>
 To solve the recurrence, just unroll it a few steps:
 $$T(n) = T(n-1) + \Theta(n)$$
-$$T(n) = T(n-2) + (\Theta(n)) + \Theta(n)$$
+$$T(n) = T(n-2) + \Theta(n) + \Theta(n)$$
 Continuing in this fashion yields $T(n) = \Theta(n^2)$.<br/><br/>
-The book suggests using the median of the first, middle, and last elements. Alternatively, one can average the first and last elements. Choosing a random element as the pivot also helps. There's a detailed discussion on <a href="https://en.wikipedia.org/wiki/Quicksort#Implementation_issues">wikipedia</a>.
+The book suggests using the median of the first, middle, and last elements. Alternatively, one can average the first and last elements. Choosing a random element as the pivot also helps. There's a detailed discussion on the <a href="https://en.wikipedia.org/wiki/Quicksort#Implementation_issues">Wikipedia article</a>.
 </div>
 
 <h2 id="recurrences"><a name="user-content-recurrences" href="#recurrences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Recurrences</h2>
