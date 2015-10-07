@@ -1,5 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="summary" content="A presentation">
-<meta name="authors" content="Sam"><style>body {
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="authors" content="Sam"><style>body {
   width: 45em;
   border: 1px solid #ddd;
   outline: 1300px solid #fff;
@@ -1106,272 +1105,194 @@ MathJax.Hub.Config({
   showProcessingMessages: false
 });
 </script>
-<title>Teaching Music to a Computer</title></head><body><article class="markdown-body"><!-- EXAMPLES:
-    1 = Pokemon Bicycle Theme
-    2 & 3 = Beethoven
-    4 = Pokemon Gym Music
--->
+<title>Greedy Algorithms and Dynamic Programming</title></head><body><article class="markdown-body"><h1 id="exam-review"><a name="user-content-exam-review" href="#exam-review" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Exam Review</h1>
+<h2 id="longest-common-substring"><a name="user-content-longest-common-substring" href="#longest-common-substring" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Longest Common Substring</h2>
+<p><div class='ctrl' style='text-align:center;'><br />
+   <label>A: <input type='text' id='w1' style='font-family: monospace;' /></label><br />
+   <label>B: <input type='text' id='w2' style='font-family: monospace;' /></label><br />
+</div><br />
+<div id='output' style='text-align:center;'><br />
+</div></p>
+<h2 id="quicksort"><a name="user-content-quicksort" href="#quicksort" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Quicksort</h2>
+<p>For the following questions, assume that the pivot is always chosen to be the last element in the partition.</p>
+<p>a. What kind of input causes worst case behavior? <br />
+b. What is the recurrence for this worst case behavior.<br />
+c. What is the solution to the worst-case recurrence?<br />
+d. Is there anyway to mitigate the worst-case?</p>
+<div class="solutions">
+Given that the pivot is always chosen to be the last element in the partition, the worst case is encountered for arrays that are already sorted.<br/><br/>
+The recurrence for the worst case is $T(n) = T(n-1) + \Theta(n)$, where $\Theta(n)$ is the time to partition.<br/><br/>
+To solve the recurrence, just unroll it a few steps:
+$$T(n) = T(n-1) + \Theta(n)$$
+$$T(n) = T(n-2) + (\Theta(n)) + \Theta(n)$$
+Continuing in this fashion yields $T(n) = \Theta(n^2)$.<br/><br/>
+The book suggests using the median of the first, middle, and last elements. Alternatively, one can average the first and last elements. Choosing a random element as the pivot also helps. There's a detailed discussion on <a href="https://en.wikipedia.org/wiki/Quicksort#Implementation_issues">wikipedia</a>.
+</div>
 
-<h1>Teaching Composition to a Computer
-<em style="font-size:0.5em;">&nbsp; &nbsp; &nbsp;... for people who <strike>don't</strike> know music</em></h1>
+<h2 id="recurrences"><a name="user-content-recurrences" href="#recurrences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Recurrences</h2>
+<p><strong>TODO</strong></p>
+<h2 id="asymptotic-notation"><a name="user-content-asymptotic-notation" href="#asymptotic-notation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Asymptotic Notation</h2>
+<p><strong>TODO</strong></p>
+<!--
+##Problem 1: Greedy Algorithms and Dynamic Programming
+Consider a set of potentially overlapping intervals represented as tuples `(start, end)`, as shown below.
+<center><img src='../img/intervals.png' /></center>
+Determine a greedy strategy to the following problems that also maximizes the possible number of  intervals. Prove that the strategy is optimal.
+
+a. Minimum start time
+
+<div class="solutions" markdown=1>
+Consider intervals in ascending order of start time.
+
+**Proof**
+TODO
+</div>
+
+b. Minimum end time.
+
+<div class="solutions">
+Consider intervals in ascending order of end time.
+
+**Proof**
+TODO
+</div>
+
+c. Shortest intervals
+
+<div class="solutions">
+Consider intervals in ascending order over of interval length (e.g. `<end> - <start>`)
+
+**Proof**
+TODO
+</div>
+
+d. Fewest conflicts
+
+<div class="solutions">
+For each interval, count the number of conflicting jobs. Consider intervals in ascending order of number of conflicts.
+
+**Proof**
+TODO
+</div>
+
+
+##Problem 2
+test
+-->
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<h2>Table of Contents</h2>
-
-<div class="toc">
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#common-techniques">Common Techniques</a><ul>
-<li><a href="#markov-chains">Markov Chains</a><ul>
-<li><a href="#the-madlib-approach">The Madlib Approach</a></li>
-</ul>
-</li>
-<li><a href="#genetic-algorithms">Genetic Algorithms</a></li>
-<li><a href="#neural-networks">Neural Networks</a></li>
-</ul>
-</li>
-<li><a href="#previous-work">Previous Work</a><ul>
-<li><a href="#functional-scaffolding-for-musical-composition">Functional Scaffolding for Musical Composition</a></li>
-<li><a href="#an-unnatural-selection">An Unnatural Selection</a></li>
-</ul>
-</li>
-<li><a href="#my-work">My Work</a><ul>
-<li><a href="#melody-generator-for-lyrics">Melody Generator for Lyrics</a></li>
-<li><a href="#baesil">BAESIL</a></li>
-</ul>
-</li>
-<li><a href="#future-work">Future Work</a></li>
-<li><a href="#see-also">See Also</a></li>
-<li><a href="#references">References</a></li>
-</ul>
-</div>
-<hr />
-<h1 id="introduction"><a name="user-content-introduction" href="#introduction" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Introduction</h1>
-<p>Algorithmic and generative music composition tends to fall under the vast umbrella of Computational Creativity, a relatively new field of research.</p>
-<dl>
-<dt><strong>Computational Creativity</strong></dt>
-<dd>
-<ul>
-<li>Computational creativity is a multidisciplinary endeavour that is located at the intersection of the fields of artificial intelligence, cognitive psychology, philosophy, and the arts. <a href="http://computationalcreativity.net/home/about/computational-creativity/">Read more&hellip;</a></li>
-</ul>
-</dd>
-</dl>
-<p>The goals of computational creativity are</p>
-<ul>
-<li>to construct a program or computer capable of human-level creativity</li>
-<li>to better understand human creativity and to formulate an algorithmic perspective on creative behavior in humans</li>
-<li>to design programs that can enhance human creativity without necessarily being creative themselves</li>
-</ul>
-<p>These are rather lofty goals, but represent incredibly important directions for A.I. research, and for our own understanding of creativity. As the field has grown, there&rsquo;s been a shift from &lsquo;mere generation&rsquo; to evaluation methods &ndash; e.g. what are the <em>measures</em> of creativity, what distinguishes creative work from uncreative work?</p>
-<p>There&rsquo;s a whole slew of interesting work that&rsquo;s been done already, some examples are:</p>
-<ul>
-<li><a href="http://thepaintingfool.com/">The Painting Fool</a> - a computer artist who has received comissions for his/her/its work.</li>
-<li><a href="http://twitter.com/MetaphorMagnet">MetaphorMagnet</a> - a twitter bot that comes up with its own metaphors (and more!).</li>
-</ul>
-<p>Although here, the focus will be on music composition.</p>
-<hr />
-<h1 id="common-techniques"><a name="user-content-common-techniques" href="#common-techniques" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Common Techniques</h1>
-<p>Most techniques focus on &lsquo;mere generation&rsquo; of music &ndash; that is, there isn&rsquo;t much in the way of evaluation techniques &ndash; and are generally applications of machine learning research. The most common approach is to &lsquo;learn&rsquo; a style of composition from a source corpora, and generate music that is similar to the source.</p>
-<h2 id="markov-chains"><a name="user-content-markov-chains" href="#markov-chains" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Markov Chains</h2>
-<p>Markov Chains are incredibly simple and generally have interesting output, hence their popularity. Markov based compositions tend to lack any high-level structure, although there have been attempts to remedy this problem. One of the most interesting involves a scheme similar to generating and filling in madlibs <a href="#madlib">[5]</a>.</p>
-<h3 id="the-madlib-approach"><a name="user-content-the-madlib-approach" href="#the-madlib-approach" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The Madlib Approach</h3>
-<ol>
-<li>
-<p><strong>Structure Generation:</strong> Sketch out the piece by identifying something like a rhyme scheme for phrases and/or motifs; e.g. ABAA BBCB.<br />
-<center><img src="../img/structure.PNG" style='margin: auto;' /></center></p>
-</li>
-<li>
-<p><strong>Chord Generation:</strong> Place chords by assigning each a root note to each &lsquo;blank&rsquo;.<br />
-<center><img src="../img/chords.PNG" style='margin: auto;' /></center></p>
-</li>
-<li>
-<p><strong>Melody Generation:</strong> Generate notes corresponding to the chord for each measure.<br />
-<center><img src="../img/melody.PNG" style='margin: auto;' /></center></p>
-</li>
-</ol>
-<p>You can here it <a href="madlib.mid">here</a>.<!--
-| G E E2 | E C C | D2 D/2 G D/2 | G/2 G/2 E C2 |
-| G E E2 | E C C | D2 D/2 G D/2 | G/2 G/2 E C2 |
-| D D D D | D B G2 | EEEE | E F G2 |
-| G E E2 | E C C | D2 D/2 G D/2 | G/2 G/2 E C2 |--></p>
-<h2 id="genetic-algorithms"><a name="user-content-genetic-algorithms" href="#genetic-algorithms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Genetic Algorithms</h2>
-<p>The algorithmic version of natural selection. Given an initial population, there are generally three steps to a genetic algorithm.</p>
-<ol>
-<li><strong>Selection</strong> &ndash; Assign every member of the population a fitness score, which measures how &lsquo;good&rsquo; that member is.</li>
-<li><strong>Mating</strong> &ndash; Combine the most members with the highest fitness scores to create a new generation of &lsquo;children&rsquo;.</li>
-<li><strong>Mutation</strong> &ndash; Randomly change the values of the &lsquo;children&rsquo;.</li>
-</ol>
-<p>For example, consider a situation where you have 10 Markov Chains from 10 different places, and your fitness function is just the probability of outputting a C#. The steps would then be: </p>
-<ol>
-<li><strong>Selection</strong> &ndash; Choose the five Markov Chains with the highest probability of outputting a C#.</li>
-<li><strong>Mating</strong> &ndash; For every possible pair from the previous step, create a new Markov Chain that uses half of the probabilities from one parent, and half from the other. </li>
-<li><strong>Mutation</strong> &ndash; Randomly change the probabilities for the children generated from the previous step.</li>
-</ol>
-<h2 id="neural-networks"><a name="user-content-neural-networks" href="#neural-networks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Neural Networks</h2>
-<p>Neural Networks are the algorithmic version of neurons in the brain. The way it works is that each node can be &lsquo;on&rsquo; or &lsquo;off&rsquo;, and if a neuron is &lsquo;on&rsquo;, it has a probability of activating connected neurons (e.g. turning them &lsquo;on&rsquo; as well). Do this a bunch of times until you get to the <em>output</em> neurons, and you have the result.<br />
-<center><img src='https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg' style='margin: auto; width: 50%;' /></center></p>
-<p>This method has been very successful in practice <a href="#cmrnn">[3]</a>, although doesn&rsquo;t vary much in style.</p>
-<hr />
-<h1 id="previous-work"><a name="user-content-previous-work" href="#previous-work" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Previous Work</h1>
-<h2 id="functional-scaffolding-for-musical-composition"><a name="user-content-functional-scaffolding-for-musical-composition" href="#functional-scaffolding-for-musical-composition" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functional Scaffolding for Musical Composition</h2>
-<p><em>Functional scaffolding for musical composition</em> (FSMC) by Hoover <em>et. al.</em> <a href="#fsmc">[1]</a> details a method of music generation which enables a user to create complete multipart arrangements from a single monophonic track without the need for musical expertise. This is an example of computer-assisted creativity, where a novice can create something beyond their expertise with the help of a computer.</p>
-<p>In essence, the source monophonic melody serves as the <em>scaffold</em> or musical starting point of the system. FSMC then allows the user to explore potential accompaniments from this scaffold. Each instrument in the scaffold is generated using neural networks. Users can navigate the musical space by using an interface (MaestroGenesis, in the paper), and thums-up or thumps-down accompaniments to evolve the neural networks to help the system generate music more in line with what they&rsquo;re looking for.</p>
-<p>Examples of the kind of output this system generates can be found <a href="http://eplex.cs.ucf.edu/fsmc/iccc2012/">here</a>.</p>
-<h2 id="an-unnatural-selection"><a name="user-content-an-unnatural-selection" href="#an-unnatural-selection" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>An Unnatural Selection</h2>
-<p>A live generative music project by Arne Eignfeldt <a href="#unsel">[2]</a> which generates music during a performance, meant to be sight-read by musicians.</p>
-<p>From the program notes:</p>
-<blockquote>
-<p>Musical ideas are born, are passed on to new generations and evolved, and eventually die out, replaced by new ideas</p>
-</blockquote>
-<p>In short, a genetic algorithm is used to <em>unfold</em> the music over time. Here, each instrument is a different population, each phrase an individual with the rhythmic and melodic material of the phrase acting as its chromosomes.</p>
-<p>So like natural selection, individuals in a population breed together to produce new &lsquo;offspring&rsquo; which may be subject to random mutations. Interestingly, there is no fitness function in this work; all individuals pass to the next generation.</p>
-<p>Here&rsquo;s an overview:</p>
-<ul>
-<li>Uses a genetic algorithm to unfold the music over time.</li>
-<li>Each instrument corresponds to a different <em>population</em>.<ul>
-<li>Each phrase is an individual.</li>
-<li>Its rhythmic and melodic material are chromosomes.</li>
-</ul>
-</li>
-<li>In the beginning, some initial phrases are generated that are a few measures long.</li>
-<li>For each subsequent generation:<ul>
-<li>Every individual (phrase) is segmented according to interval size, rests, and duration spanning from one to several beats.</li>
-<li>Some of the segments enter a pool where random crossover (mixing) of segments between populations. There is also a potential for mutation:<ul>
-<li>scrambling of pitch class</li>
-<li>transposition of +/- 12 pitch-classes</li>
-<li>sort pitch class in ascending or descending order</li>
-<li>substitute rests for notes</li>
-</ul>
-</li>
-<li>There is no fitness function; all individuals pass to the next generation (if the instrument is active).</li>
-</ul>
-</li>
-</ul>
-<p>The following corpora was used:</p>
-<ul>
-<li><strong>Movement I</strong>: 19 compositions by Pat Metheny</li>
-<li><strong>Movement II</strong>: 2 compositions by Pat Metheny and 2 by Arvo Pärt</li>
-<li><strong>Movement III</strong>: 1 composition by Terry Riley and 2 by Pat Metheny</li>
-</ul>
-<p><a href="https://www.youtube.com/watch?v=ILL-eDwdnDg">An Unnatural Selection: I - Imagination is a Way</a><br />
-<div class="video" style="padding: 0; width: 560px; height: 315px; background: #aaa; margin:auto; cursor: pointer;"></div></p>
-<p>To quote the author:</p>
-<blockquote>
-<p>Whether the system is computationally creative is a more difficult matter to determine. While I echo Cope’s desire that “what matters most is the music” (Cope 2005)<sup id="fnref:cope05"><a class="footnote-ref" href="#fn:cope05" rel="footnote">1</a></sup>, I am fully aware of Wiggins reservations that “with hand-coded rules of whatever kind, we can never get away from the claim that the creativity is coming from the programmer and not the program” (Wiggins 2008)<sup id="fnref:wiggins08"><a class="footnote-ref" href="#fn:wiggins08" rel="footnote">2</a></sup></p>
-</blockquote>
-<hr />
-<h1 id="my-work"><a name="user-content-my-work" href="#my-work" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>My Work</h1>
-<p>I&rsquo;ve only just begun working on generative music and so my approaches are rather naive and lack any solid theoretical background (though hopefully improving).</p>
-<h2 id="melody-generator-for-lyrics"><a name="user-content-melody-generator-for-lyrics" href="#melody-generator-for-lyrics" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Melody Generator for Lyrics</h2>
-<p>This system receives a lyrical phrase as input and generates a melody for it. I&rsquo;m working on this project for my Master&rsquo;s thesis in Computer Science. It&rsquo;s still just getting started, but thus far the way it works is:</p>
-<ol>
-<li>Break the lyrical phrase into individual syllables</li>
-<li>Initially, assign a quarter note to each syllable</li>
-<li>Increase the duration of syllables that are vowels by a random amount.</li>
-<li>Assign pitches to the syllable durations</li>
-</ol>
-<p>Currently, pitches are assigned using a Markov Chain trained on folk music. The analysis of syllables is done using <a href="https://github.com/cmusphinx/cmudict">CMUdict (the Carnegie Mellon Pronouncing Dictionary)</a>, which yields the IPA (International Phonetic Alphabet) pronunciation for each word. This allows us to check for syllables that are vowels.</p>
-<h2 id="baesil"><a name="user-content-baesil" href="#baesil" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>BAESIL</h2>
-<p>B.A.E.S.I.L. (an acronym for <em>BAESIL Automates Exploratory Songwriting Interactively, Live</em>) is a composition tool which uses generative music methods to help a user write a song, initially targeted at game developers. BAESIL is largely inspired by the concept of <em>casual creators</em> <a href="#casual">[4]</a>. </p>
-<p>Essentially, BAESIL is used to help a user <em>discover</em> the music they want, rather than compose it from scratch.</p>
-<p><center><img src="../img/jambro_initial.png" /></center></p>
-<p>To generate music, BAESIL uses a pair of Markov Chains &ndash; one for pitch and one for duration. Users upload music to serve as an initial corpora. Users can then edit, regenerate, delete, and cut/copy/paste notes as they desire.</p>
-<p>The eventual goal of BAESIL is to use genetic algorithms so that the user can train the system to generate the kind of music they want, by using a &ldquo;thumbs-up&rdquo;/&rdquo;thumbs-down&rdquo; type of system. The user can also bookmark sections that they like and paste them wherever they&rsquo;d like &ndash; essentially like a word processor.</p>
-<p><center><img src="../img/jambro_genetics.png" /></center></p>
-<p>The way I plan to implement the evolutionary process is as follows:</p>
-<ul>
-<li>Markov Chains are  created for each song in the initial corpora, as well as another pair representing the entire corpus. </li>
-<li>The system measures <em>interval standard deviation</em>, <em>simultaneous onset of notes</em>, <em>simultaneous onset of rests</em>, and <em>rests on downbeats</em> to quantify features about the music.</li>
-<li>Whenever the user wants to move to the next generation, all the Markov Chains in the current generation are &ldquo;bred&rdquo; together to produce new Markov Chains. This is done by taking half of the values from one parent, and half from the other.</li>
-<li>Each child in the new generation generates a melody, and the melody is compared to the initial measures. The &ldquo;worst&rdquo; half are thrown out. </li>
-</ul>
-<p>Currently, I&rsquo;m not satisfied with this approach as I don&rsquo;t think this will have great results, but it serves as an initial direction. Essentially, I&rsquo;m working to build upon the work of <a href="#fsmc">[1]</a> in this project.</p>
-<hr />
-<h1 id="future-work"><a name="user-content-future-work" href="#future-work" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Future Work</h1>
-<p>Generative music is still a relatively new concept, in the sense that there is a great deal of work to be done. More specifically, the elephant in the room is the analysis of musicial structure. Most of these methods involve generating music given an initial corpora without much scrunity to sound compositional practices. </p>
-<p>Given the breadth and difficulty of this task, lots of interesting methods exist but none that can satisfactorily write a piece of music that sounds like Bach&rsquo;s interpretation of Coltrane, for example.</p>
-<hr />
-<h1 id="see-also"><a name="user-content-see-also" href="#see-also" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>See Also</h1>
-<ol>
-<li>
-<dl>
-<dt><strong>Evaluating Musical Metacreation</strong></dt>
-<dd>&ndash; Arne Eigenfeldt, Philippe Pasquier and Adam Burnett [<a href="http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/140-Eigenfeldt.pdf">pdf</a>]</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><strong>Critical issues in evaluating freely improvising interactive music systems</strong></dt>
-<dd>&ndash; Adam Linson, Chris Dobbyn and Robin Laney [<a href="http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/145-Linson.pdf">pdf</a>]</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><strong>Player Responses to a Live Algorithm: Conceptualising computational creativity without recourse to human comparisons?</strong></dt>
-<dd>
-<p>&ndash; Oliver Bown [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/6.1Bown.pdf">pdf</a>]</p>
-</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt><strong>Collaborative Composition with Creative Systems: Reflections on the First Musebot Ensemble</strong></dt>
-<dd>&ndash; Arne Eigenfeldt, Oliver Bown and Benjamin Casey [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/6.2Eigenfeldt.pdf">pdf</a>]</dd>
-</dl>
-</li>
-<li><a href="http://metacreation.net/"><strong>Metacreation Lab</strong></a></li>
-</ol>
-<hr />
-<h1 id="references"><a name="user-content-references" href="#references" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>References</h1>
-<ol>
-<li>
-<dl>
-<dt id="fsmc"><strong>Generating a Complete Multipart Musical Composition from a Single Monophonic Melody with Functional Scaffolding</strong></dt>
-<dd>&ndash; Amy K. Hoover, Paul A. Szerlip, Marie E. Norton, Trevor A. Brindle, Zachary Merritt and Kenneth O. Stanley [<a href="http://computationalcreativity.net/iccc2012/wp-content/uploads/2012/05/111-Hoover.pdf">pdf</a>]</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt id="unsel"><strong>Generative Music for Live Musicians: An Unnatural Selection</strong></dt>
-<dd>&ndash; Arne Eigenfeldt [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/6.3Eigenfeldt.pdf">pdf</a>]</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt id="cmrnn"><strong>Composing Music With Recurrent Neural Networks</strong></dt>
-<dd>&ndash; Daniel Johnson [<a href="http://www.hexahedria.com/2015/08/03/composing-music-with-recurrent-neural-networks/">article</a>]</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt id="casual"><strong>Casual Creators</strong></dt>
-<dd>&ndash; Kate Compton and Michael Mateas [<a href="http://axon.cs.byu.edu/ICCC2015proceedings/10.2Compton.pdf">pdf</a>, <a href="http://www.casualcreator.com/blog/">blog</a>]</dd>
-</dl>
-</li>
-<li>
-<dl>
-<dt id="madlib"><strong>Algorithmic Compositions Based on Discovered Musical Patterns</strong></dt>
-<dd>&ndash; Shan Man-Kawn and Chiu Shih-Chuan</dd>
-</dl>
-</li>
-</ol>
 <script>
-$('.video').on('click', function() {
-    var embd = $('<iframe width="560" height="315" src="https://www.youtube.com/embed/ILL-eDwdnDg" frameborder="0" allowfullscreen></iframe>');
-    $(this).append(embd);
-    console.info('hi');
-});
-</script>
+    $('.solutions').each(function(index) {
+        var sol = $(this);
+        sol.css({
+            'position': 'relative',
+            'top': '-8px',
+            'overflow': 'scroll',
+            'width': '100%',
+            'max-height': '300px',
+            'background-color': 'rgba(100, 100, 100, 0.1)',
+            'padding': '0 5px'
+        }).hide();
 
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:cope05">
-<p>Cope, D. 2005. <em>Computer models of musical creativity</em>, Cambridge: MIT Press.&#160;<a class="footnote-backref" href="#fnref:cope05" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:wiggins08">
-<p>Wiggins, G. 2008. Computer Models of Musical Creativity: A Review of Computer Models of Musical Creativity by David Cope, <em>Literary and Linguistic Computing</em>, 10(1), 109–116.&#160;<a class="footnote-backref" href="#fnref:wiggins08" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div></article></body></html>
+        var btn = $('<input type="button" value="Solution" />');
+        btn.css({
+            'position': 'relative',
+            'top': '-16px',
+            'margin-bottom': '-8px'
+        });
+        btn.on('click', function() {
+            sol.toggle();
+        });
+        sol.before(btn);
+    });
+
+var LCS = {
+   init: function(a, b, el) {
+      this.el = el || $('#output');
+      this.input = {
+         a: (a || $('#w1')),
+         b: (b || $('#w2'))
+      };
+   },
+
+   update: function() {
+      var a = this.input.a.val(),
+          b = this.input.b.val();
+
+      var result = this.LCS(a, b);
+
+      this.draw(a, b, result.d, result.dir);
+   },
+
+   LCS: function(a, b) {
+      console.info('got', a, b);
+      var d = new Array(a.length+1),
+         dir = new Array(a.length);
+
+      var i, j;
+
+      for(i = 0; i < d.length; ++i) {
+         d[i] = new Array(b.length+1);
+         d[i][0] = 0;
+
+         dir[i] = new Array(b.length);
+
+         for(j = 0; j < d[i].length; ++j) {
+            d[0][j] = 0;
+         }
+      }
+
+      for(i = 0; i < a.length; i++) {
+         for(j = 0; j < b.length; j++) {
+            if(a[i] == b[j]) {
+               dir[i][j] = '&#8598;';
+               d[i+1][j+1] = d[i][j] + 1;
+            } else if(d[i][j+1] >= d[i+1][j]){
+               dir[i][j] = '&#8593;';
+               d[i+1][j+1] = d[i][j+1];
+            } else {
+               dir[i][j] = '&#8592;';
+               d[i+1][j+1] = d[i+1][j];
+            }
+         }
+      }
+
+      return {d:d, dir:dir};
+   },
+
+   draw: function(a, b, d, c) {
+      console.info(c);
+      var htmlOutput = "<table border=1 style='margin: 0 auto; margin-top: 5px;'>";
+      var i, j;
+
+      htmlOutput += '<tr><td></td><td></td>';
+      for(var i = 0; i < b.length; ++i)
+         htmlOutput += '<td><b>' + b[i] + '</b></td>';
+      htmlOutput += '</tr>';
+
+      for(var i = 0; i <= a.length; ++i) {
+         htmlOutput += '<tr><td><b>' + ((i == 0) ? '' : a[i-1]) + '<b></td>';
+         for(var j = 0; j <= b.length; ++j) {
+            htmlOutput += '<td>';
+            if(i > 0 && j > 0) htmlOutput += c[i-1][j-1] + ' ';
+            htmlOutput += d[i][j] + '</td>';
+         }
+         htmlOutput += '</tr>';
+      }
+
+      htmlOutput += '</table>';
+      this.el.html(htmlOutput);
+
+      $('td').css({
+         'width': '2em'
+      });
+   }
+};
+
+$(function() {
+   LCS.init($('#w1'), $('#w2'));
+   $('input').on('change', LCS.update.bind(LCS));
+   LCS.update();
+});
+</script></article></body></html>
