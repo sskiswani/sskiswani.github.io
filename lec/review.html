@@ -1132,9 +1132,23 @@ Continuing in this fashion yields $T(n) = \Theta(n^2)$.<br/><br/>
 The book suggests using the median of the first, middle, and last elements. Alternatively, one can average the first and last elements. Choosing a random element as the pivot also helps. There's a detailed discussion on the <a href="https://en.wikipedia.org/wiki/Quicksort#Implementation_issues">Wikipedia article</a>.
 </div>
 
-<h2 id="recurrences"><a name="user-content-recurrences" href="#recurrences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Recurrences</h2>
-<p><strong>TODO</strong></p>
 <h2 id="asymptotic-notation"><a name="user-content-asymptotic-notation" href="#asymptotic-notation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Asymptotic Notation</h2>
+<p>a. <i>Formally</i> prove the transitivity of $\Omega$, e.g. if $f \in \Omega(g)$ and $g \in \Omega(h)$ then $f \in \Omega(h)$.</p>
+<div class='solutions'>
+Given:<br/>
+(1) $f \in \Omega(g) \rightarrow c_1 g \leq f$ for $n \geq n_0$ and some $c_1$.<br/>
+(2) $g \in \Omega(h) \rightarrow c_2 h \leq g$ for $n \geq n_1$ and some $c_2$.<br/>
+<br/>
+Since $c_1$ is an arbitrary constant, without loss of generality we have $c_2 h \leq g \leq c_1 g$, which allows us to write $c_2 c_1 h \leq c_1 g \leq f$ <br/>
+Let $n_3 = \max(n_0, n_1)$, and $c_3 = c_2 c_1$, hence $c_3 h \leq f$ for $n \geq n_3$ which is the formal definition of $f \in \Omega(h)$.
+</div>
+
+<p>b. <b>For the general case</b> (e.g. arbitrary $f$ and $g$), prove or disprove $f \not\in \omega(g) \rightarrow f \in O(g)$</p>
+<div class='solutions'>
+Since $c_1 g \not\lt f$ for $n \geq n_0$, it must be that $f \leq c_1g$ for $n \geq n_0$ which, by definition, implies that $f \in O(g)$.
+</div>
+
+<h2 id="recurrences"><a name="user-content-recurrences" href="#recurrences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Recurrences</h2>
 <p><strong>TODO</strong></p>
 <!--
 ##Problem 1: Greedy Algorithms and Dynamic Programming
