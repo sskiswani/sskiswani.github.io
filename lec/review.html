@@ -1149,51 +1149,39 @@ Since $c_1 g \not\lt f$ for $n \geq n_0$, it must be that $f \leq c_1g$ for $n \
 </div>
 
 <h2 id="recurrences"><a name="user-content-recurrences" href="#recurrences" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Recurrences</h2>
-<p><strong>TODO</strong></p>
+<p>Do <em>not</em> use the Master method for the following problems.</p>
+<p>a. Show that if $T(n) = 3T(n/2) + n^2$, then $T(n) \in O(n^2)$.<br />
+<div class='solutions'><br />
+Plugging in&hellip; remember that since $c$ is an arbitrary constant, it can consume other constants.<br/><br />
+$T(n) \leq 3(cn^2/2) + n^2$<br /><br />
+$T(n) \leq cn^2 + n^2$<br /><br />
+$T(n) \leq cn^2$<br /><br />
+<br/>Hence $T(n) \in O(n^2)$.<br />
+</div></p>
+<p>b. Show that if $T(n) = T(n/2) + 2^n$, then $T(n) \in O(2^n)$.<br />
+<div class='solutions'><br />
+$T(n) \leq c2^n / 2 + 2^n$<br /><br />
+$T(n) \leq c2^n$<br /><br />
+<br/>Hence $T(n) \in O(2^n)$.<br />
+</div></p>
+<p>c. Prove $T(n) = 16T(n/4) + n \rightarrow T(n) \in O(n^2)$.<br />
+<div class='solutions'><br />
+$T(n) \leq 16(cn^2 / 4) + n$<br /><br />
+$T(n) \leq cn^2 + n$<br /><br />
+<br/>Hence $T(n) \in O(n^2)$.<br />
+</div></p>
+<p>d. Prove $T(n) = 3T(n/3) + \sqrt{n} \rightarrow T(n) \in O(n)$.<br />
+<div class='solutions'><br />
+$T(n) \leq 3(cn/3) + \sqrt{n}$<br/><br />
+$T(n) \leq cn + \sqrt{n}$<br/><br />
+<br/>Hence $T(n) \in O(n)$.<br />
+</div></p>
 <!--
-##Problem 1: Greedy Algorithms and Dynamic Programming
+##Greedy Algorithms
 Consider a set of potentially overlapping intervals represented as tuples `(start, end)`, as shown below.
 <center><img src='../img/intervals.png' /></center>
-Determine a greedy strategy to the following problems that also maximizes the possible number of  intervals. Prove that the strategy is optimal.
+Determine a greedy strategy to the following problems that also maximizes the possible number of  intervals. Prove that the strategy is optimal. Assume there is an algorithm *OPT* that always yields the optimal solution.
 
-a. Minimum start time
-
-<div class="solutions" markdown=1>
-Consider intervals in ascending order of start time.
-
-**Proof**
-TODO
-</div>
-
-b. Minimum end time.
-
-<div class="solutions">
-Consider intervals in ascending order of end time.
-
-**Proof**
-TODO
-</div>
-
-c. Shortest intervals
-
-<div class="solutions">
-Consider intervals in ascending order over of interval length (e.g. `<end> - <start>`)
-
-**Proof**
-TODO
-</div>
-
-d. Fewest conflicts
-
-<div class="solutions">
-For each interval, count the number of conflicting jobs. Consider intervals in ascending order of number of conflicts.
-
-**Proof**
-TODO
-</div>
-
-
-##Problem 2
 test
 -->
 
