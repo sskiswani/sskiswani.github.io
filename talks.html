@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="UTF-8">
+   <link rel="stylesheet" type="text/css" href="css/static_style.css" />
+   <title>Suhib Sam Kiswani</title>
+
+   <script src="js/quotes.js"></script>
+   <script>
+      window.onload = function() {
+         var quote = quotables[Math.floor(Math.random() * quotables.length)];
+         document.getElementById("quote").innerHTML = '<i>\"' + quote[0] + '"</i><br>&nbsp;&nbsp;&nbsp; - ' + quote[1];
+      }
+   </script>
+</head>
+<body>
+<!-- HEADER -->
+   <div class="header">
+      <a href='https://sskiswani.github.io/'><h1>Suhib Sam Kiswani</h1></a>
+      &nbsp;
+      <ul class="nav">
+         <li><a href="https://sskiswani.github.io/">about</a></li>
+         <li><a href="img/Kiswani_Resume.png">resume</a></li>
+         <li><a href="cop4531.html">teaching</a></li>
+         <li><a href="talks.html">talks</a></li>
+         <li></li>
+      </ul>
+   </div>
+
+
+<!-- CONTENT -->
+   <div class="content">
+      <ul>
+         <li><a href="lec/genmusic.html">Generative Music Write-Up</a> (as well as info on my research)</li>
+         <li><b>Code Samples</b>
+            <ul>
+               <li><a href="code/text_generator.html">Simple Markov Text Generator</a> (Python)</li>
+               <li><a href="code/music_generator.html">Simple Markov Music Generator</a> (Python)</li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+
+   <div class="footer">
+   </div>
+</body>
+</html>
