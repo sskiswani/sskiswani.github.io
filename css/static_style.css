@@ -37,11 +37,6 @@ a:visted {
    background-color: #398bce;
    font-size: 1.25em;
    font-weight: bold;
-
-   /*color: #24201C;*/
-   /*background: rgba(114, 197, 255, 0.5);*/
-   /*border-top: 3px solid rgba(114, 197, 255, 1);*/
-   /*border-bottom: 3px solid rgba(114, 197, 255, 1);*/
 }
 
 .header > a:nth-child(1) {
@@ -52,9 +47,6 @@ a:visted {
    display: inline;
    left: 0;
    font-size: 1.5em;
-   /*color: #24201C;*/
-   /*margin: 0;*/
-   /*padding: 0;*/
 }
 
 .nav {
@@ -79,8 +71,6 @@ a:visted {
    font-size: 16px;
 }
 
-/* CONTENT */
-
 .mug {
    float: left;
    width: 200px;
@@ -101,22 +91,17 @@ a:visted {
    padding: 0;
 }
 
-.panel {
-}
-
 .words {
    display: table;
-   height: 250px;
-
+   height: 200px;
    margin: 15px;
    padding: 0;
-
    overflow: hidden;
 }
 
 .bio {
    display: table-cell;
-   vertical-align: center;
+   vertical-align: middle;
    padding: 5px 15px;
 }
 
@@ -125,8 +110,6 @@ a:visted {
    clear: both;
    padding: 5px 5px 15px 15px;
    margin: 0 auto;
-   /*background-color: rgba(67,138,197, 0.15);*/
-
    border-left: 5px solid rgba(0, 128, 213, 0.5);
    border-radius: 15px;
 }

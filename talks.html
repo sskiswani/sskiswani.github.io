@@ -4,14 +4,7 @@
    <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="css/static_style.css" />
    <title>Suhib Sam Kiswani</title>
-
    <script src="js/quotes.js"></script>
-   <script>
-      window.onload = function() {
-         var quote = quotables[Math.floor(Math.random() * quotables.length)];
-         document.getElementById("quote").innerHTML = '<i>\"' + quote[0] + '"</i><br>&nbsp;&nbsp;&nbsp; - ' + quote[1];
-      }
-   </script>
 </head>
 <body>
 <!-- HEADER -->
@@ -19,16 +12,20 @@
       <a href='https://sskiswani.github.io/'><h1>Suhib Sam Kiswani</h1></a>
       &nbsp;
       <ul class="nav">
-         <li><a href="https://sskiswani.github.io/">about</a></li>
+         <li><a href="index.html">about</a></li>
+         <li><a href="https://represent.io/sskiswani.pdf">resume</a></li>
          <li><a href="cop4531.html">teaching</a></li>
          <li><a href="talks.html">talks</a></li>
          <li></li>
       </ul>
    </div>
 
-
 <!-- CONTENT -->
    <div class="content">
+      <b>Posters</b>
+      <ul>
+         <a href="bin/streaming.pdf">Streaming Clustering</a> - Analysis of streaming (or online) clustering, demonstrating that multiple streams allow for the identification of additional clustering structures. Additionally demonstrating a streaming algorithm that is identical to the classical <i>k</i>-means algorithm in terms of input-out behavior. Part of the work done under <a href="http://www.cs.fsu.edu/~ackerman/">Margareta Ackerman</a>.
+       </ul>
       <b>Talk Write-ups</b>
       <ul>
          <li><a href="lec/genmusic.html">Generative Music</a> - Talk on generative music I did for the <i>Computational Methods in Music Research and Composition</i> doctoral seminar.</li>

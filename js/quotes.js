@@ -23,3 +23,8 @@ var quotables = [
    ["when you don’t create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create.",
    "_why"]
 ];
+
+window.onload = function() {
+   var quote = quotables[Math.floor(Math.random() * quotables.length)];
+   document.getElementById("quote").innerHTML = '<i>\"' + quote[0] + '"</i><br>&nbsp;&nbsp;&nbsp; - ' + quote[1];
+}
