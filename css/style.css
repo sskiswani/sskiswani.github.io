@@ -1,0 +1,134 @@
+/* color references
+  .background { background: #2C3E50; }
+  .foreground { background: #6DBCDB; }
+  .accent { background: #D7DADB; }
+  .highlight { background: #FC4349; }
+  .text { background: #fff; }
+*/
+body {
+  display: flex;
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  min-width: 380px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  flex-flow: row wrap;
+
+  color: #2C3E50;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 22px;
+  line-height: 30px;
+
+  background-color: rgba(0, 128, 213, 0.1);
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+section + section { margin-top: 15px; }
+section { margin: 25px 0 15px 0; }
+
+header {
+  width: 100%;
+  margin: 60px 0 20px 0;
+}
+
+header > h1 {
+  margin: 0 auto;
+  line-height: initial;
+  white-space: nowrap;
+  color: #FC4349;
+}
+
+header > h2 {
+  line-height: initial;
+  float: left;
+  margin: 0;
+  color: #2C3E50;
+  font-size: 27px;
+  text-indent: 13px;
+}
+
+p {
+  margin: 10px 0;
+  padding: 0;
+  text-indent: 20px;
+}
+
+p:first-child { margin: 0; }
+
+a { color: #2C3E50; }
+a:hover { color: #FC4349; }
+
+.nav {
+  display: flex;
+  width: 100%;
+  flex-flow: row nowrap;
+  padding: 0;
+  margin: 0 10%;
+  white-space: nowrap;
+  list-style-type: disc;
+}
+
+.nav li {
+  display: inline;
+}
+
+#quote {
+  max-width: 750px;
+  margin: 20px 0 0 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  border-left: 5px solid rgba(0, 128, 213, 0.5);
+  border-radius: 15px;
+}
+
+@media all and (min-width: 501px) {
+  .nav li:before, .nav li:last-child:after {
+    content: '\00a0\2022\00a0\00a0';
+    color: #FC4349;
+    font-size: 16px;
+    padding-left: 3px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  header { margin: 5px 0 15px 0; }
+  section { margin: 25px 5px 0 5px; }
+  .nav {
+    top: 5px;
+    flex-flow: column;
+    font-size: 1.5em;
+    align-items: center;
+    margin: 0;
+  }
+
+  .nav li {
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+  }
+  .nav li a {
+    display: block;
+    border-top: 1px solid rgba(215, 218, 219, 0);
+    border-bottom: 1px solid rgba(215, 218, 219, 0);
+  }
+
+  .nav li a:hover {
+    border-top: 1px solid rgb(215, 218, 219);
+    border-bottom: 1px solid rgb(215, 218, 219);
+    background-color: rgba(215, 218, 219, 0.25);
+  }
+  .nav li a {
+    width: 100%;
+    height: 100%;
+  }
+
+  .nav li:not(:first-child) {margin: 5px auto;}
+
+}
