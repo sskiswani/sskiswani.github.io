@@ -7,15 +7,13 @@
 */
 body {
   display: flex;
+  flex-flow: row wrap;
   position: relative;
-  width: 90%;
-  max-width: 900px;
+  max-width: 800px;
   min-width: 380px;
 
-  margin: 0 auto;
+  margin: 0 10%;
   padding: 0;
-
-  flex-flow: row wrap;
 
   color: #2C3E50;
   font-family: 'Segoe UI', sans-serif;
@@ -88,7 +86,7 @@ a:hover { color: #FC4349; }
   border-radius: 15px;
 }
 
-@media all and (min-width: 501px) {
+@media all and (min-width: 551px) {
   .nav li:before, .nav li:last-child:after {
     content: '\00a0\2022\00a0\00a0';
     color: #FC4349;
@@ -97,7 +95,8 @@ a:hover { color: #FC4349; }
   }
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 550px) {
+  body { margin: 0 0 0 5px; }
   header { margin: 5px 0 15px 0; }
   section { margin: 25px 5px 0 5px; }
   .nav {
