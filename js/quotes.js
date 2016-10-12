@@ -29,7 +29,7 @@ var quotations = [{
    quote: "The actors by their presence always convince me, to my horror, that most of what I've written about them until now is false. It is false because I write about them with steadfast love (even now, while I write it down, this, too, becomes false) but varying ability, and this varying ability does not hit off the real actors loudly and correctly but loses itself dully in this love that will never be satisfied with the ability and therefore thinks it is protecting the actors by preventing this ability from exercising itself.",
    src: "Franz Kafka"
 }, {
-   quote: "It is (to describe it figuratively) as if an author were to make a slip of the pen, and as if this clerical error became conscious of being such. Perhaps this was no error but in a far higher sense was an essential part of the whole exposition. It is, then, as if this clerical error were to revolt against the author, out of hatred for Iron, were to forbid him to correct it, and were to say, 'No, I will not be erased, I will stand as a witness against thee, that thou art a very poor writer.'",
+   quote: "It is (to describe it figuratively) as if an author were to make a slip of the pen, and as if this clerical error became conscious of being such. Perhaps this was no error but in a far higher sense was an essential part of the whole exposition. It is, then, as if this clerical error were to revolt against the author, out of hatred for him, were to forbid him to correct it, and were to say, 'No, I will not be erased, I will stand as a witness against thee, that thou art a very poor writer.'",
    src: "Søren Kierkegaard"
 }];
 
