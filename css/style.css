@@ -5,21 +5,20 @@
   .highlight { background: #FC4349; }
   .text { background: #fff; }
 */
+
 body {
   display: flex;
   flex-flow: row wrap;
   position: relative;
   max-width: 800px;
   min-width: 380px;
-
   margin: 0 10%;
   padding: 0;
-
   color: #2C3E50;
   font-family: 'Segoe UI', sans-serif;
-  font-size: 22px;
-  line-height: 30px;
-
+  font-size: 1.375rem;
+  line-height: 2rem;
+  /* 30px;*/
   background-color: rgba(0, 128, 213, 0.01);
 }
 
@@ -28,8 +27,13 @@ div {
   padding: 0;
 }
 
-section + section { margin-top: 15px; }
-section { margin: 25px 0 15px 0; }
+section + section {
+  margin-top: 15px;
+}
+
+section {
+  margin: 30px 0 15px 0;
+}
 
 header {
   width: 100%;
@@ -58,10 +62,17 @@ p {
   text-indent: 20px;
 }
 
-p:first-child { margin: 0; }
+p:first-child {
+  margin: 0;
+}
 
-a { color: #2C3E50; }
-a:hover { color: #FC4349; }
+a {
+  color: #2C3E50;
+}
+
+a:hover {
+  color: #FC4349;
+}
 
 .nav {
   display: flex;
@@ -78,10 +89,12 @@ a:hover { color: #FC4349; }
 }
 
 #quote {
-  max-width: 750px;
-  margin: 20px 0 0 15px;
-  padding-left: 15px;
   box-sizing: border-box;
+  max-width: 650px;
+  margin: 50px 0 0 15px;
+  padding-left: 15px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   border-left: 5px solid rgba(0, 128, 213, 0.5);
   border-radius: 15px;
 }
@@ -96,9 +109,19 @@ a:hover { color: #FC4349; }
 }
 
 @media all and (max-width: 550px) {
-  body { margin: 0 0 0 5px; }
-  header { margin: 5px 0 15px 0; }
-  section { margin: 25px 5px 0 5px; }
+  body {
+    margin: 0 0 0 5px;
+  }
+  header {
+    margin: 5px 0 15px 0;
+  }
+  section {
+    margin: 35px 5px 0 5px;
+  }
+  p {
+    text-align: center;
+    padding: 0 5px;
+  }
   .nav {
     top: 5px;
     flex-flow: column;
@@ -106,7 +129,6 @@ a:hover { color: #FC4349; }
     align-items: center;
     margin: 0;
   }
-
   .nav li {
     width: 100%;
     text-align: center;
@@ -117,7 +139,6 @@ a:hover { color: #FC4349; }
     border-top: 1px solid rgba(215, 218, 219, 0);
     border-bottom: 1px solid rgba(215, 218, 219, 0);
   }
-
   .nav li a:hover {
     border-top: 1px solid rgb(215, 218, 219);
     border-bottom: 1px solid rgb(215, 218, 219);
@@ -127,7 +148,7 @@ a:hover { color: #FC4349; }
     width: 100%;
     height: 100%;
   }
-
-  .nav li:not(:first-child) {margin: 5px auto;}
-
+  .nav li:not(:first-child) {
+    margin: 5px auto;
+  }
 }
