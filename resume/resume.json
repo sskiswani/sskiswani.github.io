@@ -1,0 +1,196 @@
+{
+  "basics": {
+    "email": "[redacted]",
+    "label": "Software Developer",
+    "name": "Suhib Sam Kiswani",
+    "phone": "[redacted]",
+    "profiles": [
+      {
+        "network": "twitter",
+        "url": "https://twitter.com/sskiswani",
+        "username": "sskiswani"
+      },
+      {
+        "network": "github",
+        "url": "https://github.com/sskiswani/",
+        "username": "sskiswani"
+      },
+      {
+        "network": "itch.io",
+        "url": "https://sskiswani.itch.io/",
+        "username": "sskiswani"
+      },
+      {
+        "network": "gitlab",
+        "url": "https://gitlab.com/sskiswani/",
+        "username": "sskiswani"
+      }
+    ],
+    "summary": "Terribly curious academically-inclined hacker",
+    "url": "http://sskiswani.com/"
+  },
+  "education": [
+    {
+      "area": "Computer Science, Astrophysics",
+      "endDate": "08/2014",
+      "institution": "Florida State University",
+      "startDate": "08/2009",
+      "studyType": "Bachelor of Science"
+    }
+  ],
+  "interests": [
+    {
+      "keywords": [
+        "Unity3d",
+        "XNA",
+        "WebGL",
+        "Unity3d"
+      ],
+      "name": "Game Development"
+    }
+  ],
+  "languages": [
+    {
+      "level": "fluent",
+      "name": "English"
+    },
+    {
+      "level": "fluent",
+      "name": "Arabic"
+    }
+  ],
+  "projects": [
+    {
+      "description": "Analysis of streaming (or online) clustering, demonstrating that multiple streams allow for the identification of additional clustering structures.",
+      "keywords": [
+        "clustering",
+        "data",
+        "algorithm"
+      ],
+      "name": "Streaming Clustering",
+      "roles": [
+        "research assistant"
+      ],
+      "entity": "Florida State University",
+      "type": "presentation",
+      "url": "http://sskiswani.com/bin/streaming.pdf"
+    },
+    {
+      "description": "Optical Music Recognition (OMR) software. Converts images of sheet music into playable MIDI files.",
+      "keywords": [
+        "python",
+        "scikit",
+        "music21",
+        "numpy",
+        "matplotlib"
+      ],
+      "name": "HearMe",
+      "type": "software",
+      "url": "https://github.com/sskiswani/HearMe"
+    },
+    {
+      "description": "Bootstrapper for Typescript game development, tailored specifically to satisfy personal pet-peeves/quirks related to web and game development. Uses gulp and browserify for builds.",
+      "keywords": [
+        "typescript",
+        "javascript",
+        "webgl",
+        "pixijs",
+        "node"
+      ],
+      "name": "samgine",
+      "type": "software",
+      "url": "https://github.com/sskiswani/samgine"
+    },
+    {
+      "description": "Prototype on using sound as a reward mechanism. You're a busker trying to inform people via music that the meat is actually pink slime, in a town where music is illegal.",
+      "keywords": [
+        "unity3d",
+        "webgl",
+        "gamedev",
+        "C#"
+      ],
+      "name": "Silent Streets of Toxic Meats",
+      "type": "game",
+      "url": "https://sskiswani.itch.io/silent-streets-of-toxic-meats"
+    },
+    {
+      "description": "Simulation of neural network evolution on the GPU -- a rewrite of Aaron J. Miller's SynFire Growth, based on work by Jun and Dezhe of Penn State.",
+      "keywords": [
+        "neural network",
+        "synfire",
+        "gpu",
+        "cuda",
+        "c++",
+        "c",
+        "python"
+      ],
+      "name": "SynGPU",
+      "url": "https://github.com/sskiswani/SynGPU"
+    }
+  ],
+  "skills": [
+    {
+      "keywords": [
+        "javascript",
+        "typescript",
+        "react",
+        "inferno",
+        "node",
+        "jquery",
+        "html",
+        "css"
+      ],
+      "name": "Web Development"
+    },
+    {
+      "keywords": [
+        "node",
+        "sql"
+      ],
+      "name": "Full Stack Development"
+    },
+    {
+      "keywords": [
+        "clustering"
+      ],
+      "name": "Data Science"
+    }
+  ],
+  "work": [
+    {
+      "company": "IBM",
+      "highlights": [
+        "Migrated codebase with deprecated dependencies and antiquated build system (targetting ES3), to a fully modern TypeScript ES2015 project using React/Redux -- while maintaining a regular workload",
+        "Built a custom, configurable email reporting system, with customer-facing editor and email-scheduler",
+        "Running whiteboarding sessions to help develop and maintain skills with colleagues across our suite of products"
+      ],
+      "location": "Austin, Texas",
+      "position": "Software Developer",
+      "startDate": "02/2016",
+      "summary": "Using TypeScript & React, with a Java backend to develop a browser-based UI for a storage system management solution.",
+      "url": "https://www-03.ibm.com/systems/storage/spectrum/control/"
+    },
+    {
+      "company": "Florida State University",
+      "endDate": "12/2015",
+      "highlights": [
+        "Developed an algorithm that can be used to detect some cluster structure in streaming (online) datasets.",
+        "Introduced Computational Creativity research prospects at FSU, in addition to helping bootstrap students interested in research"
+      ],
+      "location": "Tallahasse, Florida",
+      "position": "Research Assistant",
+      "startDate": "08/2014",
+      "summary": "Research work on Theoretical Clustering and Computational Creativty, in addition to a assisting teaching of courses spanning web development, algorithms, and computer architecture",
+      "url": "http://www.cs.fsu.edu/"
+    },
+    {
+      "company": "Tresta",
+      "endDate": "08/2014",
+      "location": "Tallahasse, Florida",
+      "position": "Junior Software Developer",
+      "startDate": "06/2013",
+      "summary": "Primarily maintaining and extending enterprise telephony and billing systems, in addition to fulfilling client feature requests. Responsibilities ranging from database work using T-SQL, web development with any of Durandal with node.js, php, full-stack .NET, and maintaining telephony systems using Erlang.",
+      "url": "http://tresta.com/"
+    }
+  ]
+}

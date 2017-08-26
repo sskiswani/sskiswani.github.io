@@ -1,0 +1,32 @@
+# My stuff
+\!*
+.env.local
+confidential-resume.json
+
+# defaults
+_site
+.build
+.DS_Store
+.git
+.history
+.jshintrc
+.nyc_output
+.publish
+.vscode
+.sass-cache
+*.log
+*.map
+*.swp
+*~
+bin
+bin.zip
+coverage
+dist
+dist.zip
+Gemfile.lock
+jsconfig.json
+node_modules
+typings
+yarn.lock
+package-lock.json
+shrinkwrap.yaml
