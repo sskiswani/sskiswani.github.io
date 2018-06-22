@@ -81,8 +81,13 @@ a:hover {
   display: inline;
 }
 
+.fab {
+  display: inline;
+  line-height: 1;
+}
+
 @media all and (min-width: 551px) {
-  i.fa {
+  .fab {
     font-size: 16px;
   }
 
@@ -96,6 +101,10 @@ a:hover {
 }
 
 @media all and (max-width: 550px) {
+  .fab {
+    font-size: 24px;
+  }
+
   body {
     margin: 0 0 0 5px;
   }

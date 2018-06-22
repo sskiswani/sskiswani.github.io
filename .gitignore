@@ -1,7 +1,5 @@
-# My stuff
-\!*
-.env.local
-confidential-resume.json
+-*
+.local*
 
 # defaults
 _site
