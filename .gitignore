@@ -1,30 +1,38 @@
 -*
 .local*
 
-# defaults
-_site
-.build
+# builds
+/dist
+
+# config
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
 .DS_Store
-.git
-.history
-.jshintrc
-.nyc_output
-.publish
-.vscode
-.sass-cache
-*.log
-*.map
-*.swp
-*~
-bin
-bin.zip
-coverage
-dist
-dist.zip
-Gemfile.lock
-jsconfig.json
-node_modules
-typings
-yarn.lock
-package-lock.json
-shrinkwrap.yaml
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
